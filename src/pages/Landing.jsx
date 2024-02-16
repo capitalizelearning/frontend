@@ -29,7 +29,7 @@ export default function Landing() {
             return;
         }
 
-        const res = await fetch("http://localhost:8000/api/auth/wait-list/", {
+        const res = await fetch("https://api.capitalizelearn.com/v1/auth/wait-list/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
