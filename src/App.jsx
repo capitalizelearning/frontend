@@ -9,8 +9,9 @@ import {
     Routes,
     useLocation,
 } from "react-router-dom";
-import { useAuth } from "./hooks/useAuth";
-import Content from "./pages/Content";
+import { useAuth } from "@/hooks/useAuth";
+import Content from "@/pages/Content";
+import Landing from "@/pages/Landing";
 
 function ProtectedRoute({ children, ...props }) {
     const { isAuthenticated } = useAuth();
@@ -27,8 +28,9 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<Landing />} />
                 <Route path="login/" element={<Login />} />
-                <Route path="/" element={<ProtectedRoute />}>
+                <Route path="learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard />} />
                     <Route path="/learn/content" element={<Content />} />
                 </Route>

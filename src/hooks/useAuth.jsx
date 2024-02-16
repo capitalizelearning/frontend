@@ -12,7 +12,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     const [authToken, setAuthToken] = React.useState(null);
-    const isAuthenticated = true;
+    const isAuthenticated = false;
     const [user, setUser] = React.useState(null);
 
     const fetchUser = async () => {

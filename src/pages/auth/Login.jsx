@@ -1,4 +1,4 @@
-import ImgSrc from "@/assets/img/login.png";
+import ImgSrc from "@/assets/imgs/login.png";
 import { useAuth } from "@/hooks/useAuth";
 import * as React from "react";
 import { useLocation, useNavigate } from "react-router-dom";

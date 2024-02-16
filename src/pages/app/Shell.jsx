@@ -1,4 +1,4 @@
-import LogoSrc from "@/assets/img/capitalize.svg";
+import LogoSrc from "@/assets/imgs/logo.png";
 import * as React from "react";
 export default function Shell({ children }) {
     const NAVIGATION = [
