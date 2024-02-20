@@ -56,7 +56,7 @@ export default function Login() {
                             method="POST">
                             {error && (
                                 <ul
-                                    class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
                                     role="alert">
                                     <li>{message}</li>
                                 </ul>
@@ -67,7 +67,7 @@ export default function Login() {
                                     id="email-label"
                                     value={username}
                                     onChange={(e) =>
-                                        setUsername(e.target, value)
+                                        setUsername(e.target.value)
                                     }
                                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-[#118B4E] peer"
                                     placeholder=" "
