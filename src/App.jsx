@@ -1,4 +1,5 @@
 import { useAuth } from "@/hooks/useAuth";
+import AboutUs from "@/pages/AboutUs.jsx";
 import Content from "@/pages/Content";
 import Dashboard from "@/pages/Dashboard.jsx";
 import Landing from "@/pages/Landing";
@@ -29,6 +30,7 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Landing />} />
+                <Route path="about" element={<AboutUs />} />
                 <Route path="login/" element={<Login />} />
                 <Route path="learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard />} />
