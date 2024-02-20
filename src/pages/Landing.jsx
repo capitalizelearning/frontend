@@ -10,13 +10,26 @@ import Feature4Src from "@/assets/imgs/features_tile_4.png";
 import Feature5Src from "@/assets/imgs/features_tile_5.png";
 import Feature6Src from "@/assets/imgs/features_tile_6.png";
 import GetStartedSrc from "@/assets/imgs/get_started.png";
-import LogoSrc from "@/assets/imgs/logo.png";
 import Review1Src from "@/assets/imgs/review_1.png";
 import Review2Src from "@/assets/imgs/review_2.png";
 import Review3Src from "@/assets/imgs/review_3.png";
+import LogoSrc from "@/assets/imgs/svgs/logo.svg";
 import * as React from "react";
 
 export default function Landing() {
+    const [vpWidth, setVpWidth] = React.useState(0);
+    const [showMenu, setShowMenu] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleResize = () => {
+            setVpWidth(window.innerWidth);
+            setShowMenu(false);
+        };
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const [email, setEmail] = React.useState("");
     const [waitListMessage, setWaitListMessage] = React.useState("");
 
@@ -29,13 +42,16 @@ export default function Landing() {
             return;
         }
 
-        const res = await fetch("https://api.capitalizelearn.com/v1/auth/wait-list/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email }),
-        });
+        const res = await fetch(
+            "https://api.capitalizelearn.com/v1/auth/wait-list/",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+            }
+        );
         if (res.status === 201) {
             setWaitListMessage("Thank you for joining the waitlist!");
             setEmail("");
@@ -59,40 +75,92 @@ export default function Landing() {
     };
 
     return (
-        <div className="flex flex-col">
-            <nav className="flex  border-b border-neutral-500 ">
-                <div className="container mx-auto flex items-center py-3 px-4">
-                    <img
-                        src={LogoSrc}
-                        className="h-10 w-10 flex-shrink-0"
-                        alt="logo"
-                    />
-                    <ul className="flex-1 flex justify-center gap-4">
+        <main className="flex flex-col max-w-screen w-full overflow-x-hidden">
+            <nav className="flex border-b border-[#161616] relative">
+                <div className="container mx-auto flex items-center py-3 px-4 gap-2">
+                    <div className="md:hidden flex">
+                        <button
+                            className="p-4"
+                            onClick={() => setShowMenu(!showMenu)}>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6">
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M3.75 9h16.5m-16.5 6.75h16.5"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div className=" flex-shrink-0 flex-1 md:flex-none">
+                        <img src={LogoSrc} className="h-12 w-12D" alt="logo" />
+                    </div>
+                    {/* Mobile menu */}
+                    <ul
+                        className={`${
+                            showMenu ? "flex" : "hidden"
+                        } md:hidden flex-1 flex-col gap-4 absolute w-full left-0 top-full mt-1 px-8 py-4 bg-white border-b border-[#161616]`}>
                         <li>
                             <a
                                 href="/"
-                                className="text-text hover:text-text-dark">
+                                className="text-text hover:underline">
                                 Home
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#"
-                                className="text-text hover:text-text-dark">
+                                className="text-text hover:underline">
                                 About Us
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#"
-                                className="text-text hover:text-text-dark">
+                                className="text-text hover:underline">
                                 Features
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#"
-                                className="text-text hover:text-text-dark">
+                                className="text-text hover:underline">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                    {/* Desktop menu */}
+                    <ul className="hidden md:flex flex-1 justify-center gap-4">
+                        <li>
+                            <a
+                                href="/"
+                                className="text-text hover:underline">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="text-text hover:underline">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="text-text hover:underline">
+                                Features
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="text-text hover:underline">
                                 Contact Us
                             </a>
                         </li>
@@ -100,7 +168,7 @@ export default function Landing() {
                     <div className="flex gap-4">
                         <button
                             type="button"
-                            className="flex items-center border border-solid border-text-light text-neutral-500 p-4 rounded-full text-lg font-semibold">
+                            className="flex items-center border border-[#8C8D8E] text-[#8C8D8E] p-4 rounded-full text-lg font-semibold">
                             <svg
                                 width={24}
                                 height={24}
@@ -120,9 +188,9 @@ export default function Landing() {
                 </div>
             </nav>
 
-            <div className="w-full container mx-auto">
+            <div className="w-full container mx-auto flex-wrap p-8 md:p-4">
                 <section>
-                    <div className="flex flex-col items-center w-full gap-6 my-32">
+                    <div className="flex flex-col items-center w-full gap-6 my-12 md:my-32">
                         <div>
                             <p className="uppercase font-semibold text-[#02A854]">
                                 INTRODUCING FINANCE
@@ -178,7 +246,7 @@ export default function Landing() {
                         <p className="text-lg font-semibold text-text mb-4">
                             Trusted by the world leaders
                         </p>
-                        <div className="flex gap-12">
+                        <div className="flex flex-row flex-wrap justify-center gap-12">
                             <img
                                 src={LoomLogoSrc}
                                 className="h-12"
@@ -203,7 +271,7 @@ export default function Landing() {
                     </div>
                 </section>
                 <section>
-                    <div className="flex flex-col items-center w-full gap-8 my-32">
+                    <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
                         <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -223,17 +291,17 @@ export default function Landing() {
                         <h2 className="text-6xl font-bold text-primary-dark">
                             Product Features
                         </h2>
-                        <p className="text-lg text-text-light text-center leading-relaxed mb-12">
+                        <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
                             We take immense pride in presenting you with a
                             comprehensive array of powerful tools and
-                            <br /> capabilities that are designed to elevate
-                            your experience and help you achieve more.
+                            capabilities that are designed to elevate your
+                            experience and help you achieve more.
                         </p>
-                        <div className="flex items-center justify-center gap-8 w-full">
+                        <div className="flex flex-col items-center justify-center gap-8 w-full f">
                             <img src={Feature1Src} alt="feature_1" />
                             <img src={Feature2Src} alt="feature_2" />
                         </div>
-                        <div className="flex items-center justify-center gap-8 w-full">
+                        <div className="flex flex-col items-center justify-center gap-8 w-full">
                             <img src={Feature3Src} alt="feature_3" />
                             <img src={Feature4Src} alt="feature_4" />
                             <img src={Feature5Src} alt="feature_5" />
@@ -241,7 +309,7 @@ export default function Landing() {
                     </div>
                 </section>
                 <section>
-                    <div className="flex flex-col items-center w-full gap-8 my-32">
+                    <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
                         <div className="flex items-center gap-1.5 bg-[#112220] text-[#33C6AB] border border-[#33C6AB] rounded-full px-2 py-1.5 font-medium">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -261,14 +329,14 @@ export default function Landing() {
                         <h2 className="text-6xl font-bold text-primary-dark">
                             Other features
                         </h2>
-                        <p className="text-lg text-text-light text-center leading-relaxed mb-12">
+                        <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
                             Our platform is designed to provide you with an
-                            exceptional user experience, catering to the <br />{" "}
-                            needs of ambitious professionals and visionary
+                            exceptional user experience, catering to the needs
+                            of ambitious professionals and visionary
                             entrepreneurs.
                         </p>
-                        <ul className="w-full max-w-screen-lg flex items-center rounded-full bg-[#161616] text-[#9B9CA1] text-center mb-12">
-                            <li className="p-4 flex-1 flex gap-1.5 justify-center text-[#FBFBFB] bg-[#1F1F1F] rounded-full w-full h-full">
+                        <ul className="w-full max-w-screen-lg flex items-center overflow-x-auto rounded-full bg-[#161616] text-[#9B9CA1] text-center mb-12 ">
+                            <li className="p-4 flex-1 flex gap-1.5 justify-center text-[#FBFBFB] bg-[#1F1F1F] rounded-full w-full h-full whitespace-nowrap">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -284,7 +352,7 @@ export default function Landing() {
                                 </svg>
                                 AI Assistant
                             </li>
-                            <li className="p-4 flex-1 flex gap-1.5 justify-center hover:text-[#FBFBFB] hover:bg-[#1F1F1F] rounded-full">
+                            <li className="p-4 flex-1 flex gap-1.5 justify-center hover:text-[#FBFBFB] hover:bg-[#1F1F1F] rounded-full whitespace-nowrap">
                                 <svg
                                     width={19}
                                     height={19}
@@ -298,7 +366,7 @@ export default function Landing() {
                                 </svg>
                                 Simple Analytics
                             </li>
-                            <li className="p-4 flex-1 flex gap-1.5 justify-center hover:text-[#FBFBFB] hover:bg-[#1F1F1F] rounded-full">
+                            <li className="p-4 flex-1 flex gap-1.5 justify-center hover:text-[#FBFBFB] hover:bg-[#1F1F1F] rounded-full whitespace-nowrap">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -314,7 +382,7 @@ export default function Landing() {
                                 </svg>
                                 Easy Collaboration
                             </li>
-                            <li className="p-4 flex-1 flex gap-1.5 justify-center hover:text-[#FBFBFB] hover:bg-[#1F1F1F] rounded-full">
+                            <li className="p-4 flex-1 flex gap-1.5 justify-center hover:text-[#FBFBFB] hover:bg-[#1F1F1F] rounded-full whitespace-nowrap">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -331,7 +399,7 @@ export default function Landing() {
                                 Smart Automation
                             </li>
                         </ul>
-                        <div className="w-full max-w-screen-lg grid grid-cols-2 gap-12">
+                        <div className="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div className="flex flex-col gap-8">
                                 <div className="flex items-center gap-4">
                                     <span className="p-2 rounded-lg bg-[#111E22] text-[#33ABD1]">
@@ -383,7 +451,7 @@ export default function Landing() {
                     </div>
                 </section>
                 <section>
-                    <div className="flex flex-col items-center w-full gap-8 my-32">
+                    <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
                         <div className="flex items-center gap-1.5 bg-[#112220] text-[#33C6AB] border border-[#33C6AB] rounded-full px-2 py-1.5 font-medium">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -403,13 +471,12 @@ export default function Landing() {
                         <h2 className="text-6xl font-bold text-primary-dark">
                             What are people saying
                         </h2>
-                        <p className="text-lg text-text-light text-center leading-relaxed mb-12">
+                        <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
                             Our customers continue to be the core of our
-                            business and their feedback vividly
-                            <br />
-                            illustrates the success of our efforts.
+                            business and their feedback vividly illustrates the
+                            success of our efforts.
                         </p>
-                        <div className="flex items-center gap-8 w-full justify-center">
+                        <div className="flex flex-col items-center gap-8 w-full justify-center">
                             <img src={Review1Src} alt="review_1" />
                             <img src={Review2Src} alt="review_2" />
                             <img src={Review3Src} alt="review_3" />
@@ -417,7 +484,7 @@ export default function Landing() {
                     </div>
                 </section>
                 <section>
-                    <div className="flex flex-col items-center w-full gap-8 my-32">
+                    <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
                         <div className="flex items-center gap-1.5 bg-[#112220] text-[#33C6AB] border border-[#33C6AB] rounded-full px-2 py-1.5 font-medium">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -437,13 +504,13 @@ export default function Landing() {
                         <h2 className="text-6xl font-bold text-primary-dark">
                             Supercharge your growth
                         </h2>
-                        <p className="text-lg text-text-light text-center leading-relaxed mb-12">
+                        <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
                             Whether you're a small startup, a growing mid-sized
-                            business, or a large enterprise, we <br />
-                            have plans tailored to your specific demands.
+                            business, or a large enterprise, we have plans
+                            tailored to your specific demands.
                         </p>
-                        <div className="flex items-center gap-12 w-full max-w-screen-lg">
-                            <div className="flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
+                        <div className="flex flex-col items-center gap-12 w-full max-w-screen-lg">
+                            <div className="max-w-[718px] flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
                                 <h4 className="text-3xl text-primary-dark text-center">
                                     Starter
                                 </h4>
@@ -542,7 +609,7 @@ export default function Landing() {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
+                            <div className="max-w-[718px] flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
                                 <h4 className="text-3xl text-primary-dark text-center">
                                     Pro
                                 </h4>
@@ -641,7 +708,7 @@ export default function Landing() {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
+                            <div className="max-w-[718px] flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
                                 <h4 className="text-3xl text-primary-dark text-center">
                                     Enterprise
                                 </h4>
@@ -741,8 +808,8 @@ export default function Landing() {
                     </div>
                 </section>
                 <section>
-                    <div className="flex flex-col items-center w-full gap-8 my-32">
-                        <div className="grid grid-cols-2 border border-solid border-black rounded-lg  w-full max-w-screen-lg">
+                    <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
+                        <div className="grid grid-cols-1 md:grid-cols-2 border border-solid border-black rounded-lg  w-full max-w-screen-lg">
                             <div className="flex flex-col gap-4 p-12">
                                 <h3 className="text-4xl font-bold text-primary-dark">
                                     Start building today
@@ -759,7 +826,7 @@ export default function Landing() {
                                     </span>
                                 )}
                                 <form
-                                    className="flex items-center gap-4"
+                                    className="flex flex-col md:flex-row items-center gap-2 md:gap-4"
                                     method="POST">
                                     <input
                                         type="email"
@@ -769,13 +836,26 @@ export default function Landing() {
                                             setEmail(e.target.value)
                                         }
                                         placeholder="Enter your email"
-                                        className="w-full py-2 px-4 rounded-full border-2 border-solid border-[#F8F8F8]"
+                                        className="w-full py-2 px-4 rounded-full border-2 border-solid border-[#8C8D8E] focus:outline-none focus:border-[#0F0F0F]"
                                     />
                                     <button
                                         onClick={handleWaitListSubmit}
-                                        className="bg-[#0F0F0F] text-[#FBFBFB] py-3 px-6 rounded-full flex-shrink-0">
+                                        className="bg-[#0F0F0F] text-[#FBFBFB] py-3 px-6 rounded-full flex-shrink-0 place-self-end">
                                         Join waitlist
                                     </button>
+                                    <span className="font-light text-xs mt-4">
+                                        Joining the wait list, indicates your consent to our{" "}
+                                        <a
+                                            href="#"
+                                            className="underline hover:no-underline">
+                                            Privacy Policy
+                                        </a> and{" "} 
+                                        <a
+                                            href="#"
+                                            className="underline hover:no-underline">
+                                            Terms of Service
+                                        </a>. You can unsubscribe at any time.
+                                    </span>
                                 </form>
                             </div>
                             <div className="get-started-cta">
@@ -789,6 +869,6 @@ export default function Landing() {
                     </div>
                 </section>
             </div>
-        </div>
+        </main>
     );
 }

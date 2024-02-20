@@ -1,4 +1,7 @@
+import { useAuth } from "@/hooks/useAuth";
+import Content from "@/pages/Content";
 import Dashboard from "@/pages/Dashboard.jsx";
+import Landing from "@/pages/Landing";
 import Login from "@/pages/auth/Login.jsx";
 import * as React from "react";
 import {
@@ -9,9 +12,6 @@ import {
     Routes,
     useLocation,
 } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
-import Content from "@/pages/Content";
-import Landing from "@/pages/Landing";
 
 function ProtectedRoute({ children, ...props }) {
     const { isAuthenticated } = useAuth();

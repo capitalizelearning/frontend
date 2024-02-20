@@ -34,8 +34,8 @@ export default function Login() {
 
     return (
         <div className="container min-h-screen mx-auto flex flex-col items-center justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden p-6">
-                <div className="">
+            <div className="flex flex-col md:flex-row overflow-hidden gap-16 p-8">
+                <div className="hidden md:block">
                     <img
                         src={ImgSrc}
                         alt="Login"
@@ -95,7 +95,7 @@ export default function Login() {
                                     Password
                                 </label>
                             </div>
-                            <div className="flex justify-between items-center">
+                            <div className="flex flex-col md:flex-row justify-between gap-2 md:items-center">
                                 <div className="flex items-center">
                                     <input
                                         type="checkbox"
@@ -112,7 +112,7 @@ export default function Login() {
                                 </div>
                                 <a
                                     href="#"
-                                    className="text-[#118B4E] font-bold">
+                                    className="text-[#118B4E] font-medium">
                                     Forgot Password?
                                 </a>
                             </div>
@@ -144,7 +144,7 @@ export default function Login() {
 
                         <p className="text-center">
                             Don't have an account?{" "}
-                            <a href="#" className="text-green-500">
+                            <a href="#" className="text-[#118B4E]">
                                 Register
                             </a>
                         </p>
