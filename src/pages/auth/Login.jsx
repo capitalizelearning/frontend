@@ -83,7 +83,7 @@ export default function Login() {
                                     id="email-label"
                                     value={username}
                                     onChange={(e) =>
-                                        setUsername(e.target, value)
+                                        setUsername(e.target.value)
                                     }
                                     className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                     placeholder=" "
