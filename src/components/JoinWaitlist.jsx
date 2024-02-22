@@ -48,7 +48,7 @@ export default function JoinWaitList() {
 
     return (
         <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 border border-solid border-black rounded-lg  w-full max-w-screen-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 border border-[#242424] rounded-lg  w-full max-w-screen-lg dark:dark:bg-[#161616] dark:border-[#242424]">
                 <div className="flex flex-col gap-4 p-12">
                     <h3 className="text-4xl font-bold text-primary-dark">
                         Start building today
@@ -72,11 +72,11 @@ export default function JoinWaitList() {
                             autoComplete="email"
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
-                            className="w-full py-2 px-4 rounded-full border-2 border-solid border-[#8C8D8E] focus:outline-none focus:border-[#0F0F0F]"
+                            className="w-full py-2 px-4 rounded-full border-2 border-[#8C8D8E] focus:outline-none focus:border-[#0F0F0F] dark:border-[#242424] dark:bg-[#242424] dark:text-[#FBFBFB] dark:focus:border-[#FBFBFB]"
                         />
                         <button
                             onClick={handleWaitListSubmit}
-                            className="bg-[#0F0F0F] text-[#FBFBFB] py-3 px-6 rounded-full flex-shrink-0 place-self-end">
+                            className="bg-[#0F0F0F] text-[#FBFBFB] py-3 px-6 rounded-full flex-shrink-0 place-self-end dark:bg-[#FBFBFB] dark:text-[#0F0F0F]">
                             Join waitlist
                         </button>
                     </form>

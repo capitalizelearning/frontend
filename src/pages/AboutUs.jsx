@@ -14,13 +14,12 @@ export default function AboutUs() {
     };
 
     return (
-        <main className="flex flex-col max-w-screen w-full overflow-x-hidden">
+        <main className="flex flex-col max-w-screen w-full overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
             <LandingNav />
-
             <div className="w-full container mx-auto flex-wrap p-8 md:p-4">
                 <section>
                     <div className="flex flex-col items-center w-full gap-4 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 width="17"
                                 height="17"
@@ -48,12 +47,12 @@ export default function AboutUs() {
                                     <input
                                         type="text"
                                         id="input-full-name"
-                                        className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-white border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer"
+                                        className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#FBFBFB] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                         placeholder=" "
                                     />
                                     <label
                                         htmlFor="input-full-name"
-                                        className="absolute text-sm text-gray-500  duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-[#02A854] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
+                                        className="absolute text-sm text-[#9B9CA1] duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-[#02A854] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                         Full name
                                     </label>
                                 </div>
@@ -61,7 +60,7 @@ export default function AboutUs() {
                                     <input
                                         type="email"
                                         id="input-email"
-                                        className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-white border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-[#02A854] peer"
+                                        className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#FBFBFB] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                         placeholder=" "
                                     />
                                     <label
@@ -75,8 +74,9 @@ export default function AboutUs() {
                                 <textarea
                                     type="text"
                                     id="input-message"
-                                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-white border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-[#02A854] peer"
-                                    placeholder=" "></textarea>
+                                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#FBFBFB] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
+                                    placeholder=" "
+                                    rows={4}></textarea>
                                 <label
                                     htmlFor="input-message"
                                     className="absolute text-sm text-gray-500  duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-[#02A854] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
@@ -85,7 +85,7 @@ export default function AboutUs() {
                             </div>
                             <button
                                 onClick={handleSendMessage}
-                                className="bg-[#02A854] text-white py-3 rounded-full">
+                                className="bg-[#02A854] text-white py-3 rounded-full dark:bg-[#FBFBFB] dark:text-[#161616]">
                                 Send message
                             </button>
                         </form>
@@ -94,7 +94,7 @@ export default function AboutUs() {
 
                 <section>
                     <div className="flex flex-col items-center w-full gap-4 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 width="14"
                                 height="14"
@@ -134,7 +134,7 @@ export default function AboutUs() {
                                 <p className="">
                                     Come say hello at our office HQ.
                                 </p>
-                                <p className="text-[#02A854] font-bold">
+                                <p className="text-[#02A854] font-bold dark:text-[#33C6AB]">
                                     123 Main Street, Los Angeles, CA 90001
                                 </p>
                             </div>
@@ -154,7 +154,7 @@ export default function AboutUs() {
                                 <p className="">
                                     Our friendly team is here to help.
                                 </p>
-                                <p className="text-[#02A854] font-bold">
+                                <p className="text-[#02A854] font-bold dark:text-[#33C6AB]">
                                     support@prestige.com
                                 </p>
                             </div>
@@ -174,7 +174,7 @@ export default function AboutUs() {
                                 <p className="">
                                     Monday - Friday from 8am to 5pm.
                                 </p>
-                                <p className="text-[#02A854] font-bold">
+                                <p className="text-[#02A854] font-bold dark:text-[#33C6AB]">
                                     +1 234 567 890
                                 </p>
                             </div>
@@ -184,7 +184,7 @@ export default function AboutUs() {
 
                 <section>
                     <div className="flex flex-col items-center w-full gap-4 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 width="14"
                                 height="14"
@@ -196,7 +196,7 @@ export default function AboutUs() {
                                     fill="currentColor"
                                 />
                             </svg>
-                            FAW
+                            FAQ
                         </div>
                         <h2 className="text-6xl font-bold text-primary-dark">
                             Some of the things you may want to know

@@ -1,7 +1,9 @@
 import LogoSrc from "@/assets/imgs/svgs/logo.svg";
+import { useTheme } from "@/hooks/useTheme";
 import * as React from "react";
 
 export default function LandingNav() {
+    const { theme, toggleTheme } = useTheme();
     const [vpWidth, setVpWidth] = React.useState(0);
     const [showMenu, setShowMenu] = React.useState(false);
 
@@ -22,19 +24,35 @@ export default function LandingNav() {
                     <button
                         className="p-4"
                         onClick={() => setShowMenu(!showMenu)}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M3.75 9h16.5m-16.5 6.75h16.5"
-                            />
-                        </svg>
+                        {showMenu ? (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6">
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M6 18 18 6M6 6l12 12"
+                                />
+                            </svg>
+                        ) : (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6">
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M3.75 9h16.5m-16.5 6.75h16.5"
+                                />
+                            </svg>
+                        )}
                     </button>
                 </div>
                 <div className=" flex-shrink-0 flex-1 md:flex-none">
@@ -44,7 +62,7 @@ export default function LandingNav() {
                 <ul
                     className={`${
                         showMenu ? "flex" : "hidden"
-                    } md:hidden flex-1 flex-col gap-4 absolute w-full left-0 top-full mt-1 px-8 py-4 bg-white border-b border-[#161616]`}>
+                    } md:hidden flex-1 flex-col gap-4 absolute w-full left-0 top-full mt-1 px-8 py-4 bg-white border-b border-[#161616] dark:bg-[#0f0f0f] dark:text-[#9B9CA1]`}>
                     <li>
                         <a href="/" className="text-text hover:underline">
                             Home
@@ -67,7 +85,7 @@ export default function LandingNav() {
                     </li>
                 </ul>
                 {/* Desktop menu */}
-                <ul className="hidden md:flex flex-1 justify-center gap-4">
+                <ul className="hidden md:flex flex-1 justify-center gap-4 dark:text-[#9B9CA1]">
                     <li>
                         <a href="/" className="text-text hover:underline">
                             Home
@@ -92,7 +110,41 @@ export default function LandingNav() {
                 <div className="flex gap-4">
                     <button
                         type="button"
-                        className="flex items-center border border-[#8C8D8E] text-[#8C8D8E] p-4 rounded-full text-lg font-semibold">
+                        onClick={toggleTheme}
+                        className="flex items-center border border-[#8C8D8E] text-[#8C8D8E] p-4 rounded-full text-lg font-semibold dark:border-[#3B3B3B]">
+                        {theme === "dark" ? (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6">
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                                />
+                            </svg>
+                        ) : (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6">
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+                                />
+                            </svg>
+                        )}
+                    </button>
+                    <button
+                        type="button"
+                        className="flex items-center border border-[#8C8D8E] text-[#8C8D8E] p-4 rounded-full text-lg font-semibold dark:border-[#3B3B3B]">
                         <svg
                             width={24}
                             height={24}
@@ -105,7 +157,7 @@ export default function LandingNav() {
                     </button>
                     <a
                         href="/login"
-                        className="flex items-center gap-1.5 bg-green-950 text-white py-1 px-10 rounded-full text-lg font-semibold">
+                        className="flex items-center gap-1.5 bg-[#002A14] text-white py-1 px-10 rounded-full text-lg font-semibold dark:bg-[#1F1F1F] border dark:border-[#3B3B3B]">
                         Login
                     </a>
                 </div>

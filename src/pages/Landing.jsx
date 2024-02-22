@@ -18,14 +18,14 @@ import * as React from "react";
 
 export default function Landing() {
     return (
-        <main className="flex flex-col max-w-screen w-full overflow-x-hidden">
+        <main className="flex flex-col max-w-screen w-full overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
             <LandingNav />
 
             <div className="w-full container mx-auto flex-wrap p-8 md:p-4">
                 <section>
                     <div className="flex flex-col items-center w-full gap-6 my-12 md:my-32">
                         <div>
-                            <p className="uppercase font-semibold text-[#02A854]">
+                            <p className="uppercase font-semibold text-[#02A854] dark:text-[#33C6AB]">
                                 INTRODUCING FINANCE
                             </p>
                         </div>
@@ -42,7 +42,7 @@ export default function Landing() {
                             <div className="flex justify-center gap-4 mb-6">
                                 <a
                                     href="#"
-                                    className="flex items-center gap-2 bg-green-950 text-white py-4 px-10 rounded-full text-lg font-semibold">
+                                    className="flex items-center gap-2 bg-[#002A14] text-white py-4 px-10 rounded-full text-lg font-semibold dark:bg-[#33C6AB]">
                                     Get Started
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ export default function Landing() {
                 </section>
                 <section>
                     <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -130,20 +130,20 @@ export default function Landing() {
                             capabilities that are designed to elevate your
                             experience and help you achieve more.
                         </p>
-                        <div className="flex flex-col items-center justify-center gap-8 w-full f">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full f">
                             <img src={Feature1Src} alt="feature_1" />
                             <img src={Feature2Src} alt="feature_2" />
                         </div>
-                        <div className="flex flex-col items-center justify-center gap-8 w-full">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full">
                             <img src={Feature3Src} alt="feature_3" />
                             <img src={Feature4Src} alt="feature_4" />
                             <img src={Feature5Src} alt="feature_5" />
                         </div>
                     </div>
                 </section>
-                <section>
+                <section id="#features">
                     <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 bg-[#112220] text-[#33C6AB] border border-[#33C6AB] rounded-full px-2 py-1.5 font-medium">
+                    <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -254,7 +254,7 @@ export default function Landing() {
                                         AI Assistant
                                     </span>
                                 </div>
-                                <h3 className="text-5xl font-bold text-black">
+                                <h3 className="text-5xl font-bold">
                                     Your new ultimate productivity companion
                                 </h3>
                                 <p className="text-text-light text-lg leading-relaxed">
@@ -285,7 +285,7 @@ export default function Landing() {
                 </section>
                 <section>
                     <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 bg-[#112220] text-[#33C6AB] border border-[#33C6AB] rounded-full px-2 py-1.5 font-medium">
+                    <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -309,7 +309,7 @@ export default function Landing() {
                             business and their feedback vividly illustrates the
                             success of our efforts.
                         </p>
-                        <div className="flex flex-col items-center gap-8 w-full justify-center">
+                        <div className="flex flex-col md:flex-row items-center gap-8 w-full justify-center">
                             <img src={Review1Src} alt="review_1" />
                             <img src={Review2Src} alt="review_2" />
                             <img src={Review3Src} alt="review_3" />
@@ -318,7 +318,7 @@ export default function Landing() {
                 </section>
                 <section>
                     <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 bg-[#112220] text-[#33C6AB] border border-[#33C6AB] rounded-full px-2 py-1.5 font-medium">
+                    <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -342,8 +342,8 @@ export default function Landing() {
                             business, or a large enterprise, we have plans
                             tailored to your specific demands.
                         </p>
-                        <div className="flex flex-col items-center gap-12 w-full max-w-screen-lg">
-                            <div className="max-w-[718px] flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
+                        <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-screen-lg">
+                            <div className="flex flex-col items-center gap-4 border border-solid border-[#242424] rounded-lg p-6 dark:bg-[#161616] dark:border-[#242424]">
                                 <h4 className="text-3xl text-primary-dark text-center">
                                     Starter
                                 </h4>
@@ -442,7 +442,7 @@ export default function Landing() {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="max-w-[718px] flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
+                            <div className="flex flex-col items-center gap-4 border border-solid border-[#242424] rounded-lg p-6 dark:bg-[#161616] dark:border-[#242424]">
                                 <h4 className="text-3xl text-primary-dark text-center">
                                     Pro
                                 </h4>
@@ -541,7 +541,7 @@ export default function Landing() {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="max-w-[718px] flex flex-col items-center gap-4 border border-solid border-black rounded-lg p-6">
+                            <div className="flex flex-col items-center gap-4 border border-solid border-[#242424] rounded-lg p-6 dark:bg-[#161616] dark:border-[#242424]">
                                 <h4 className="text-3xl text-primary-dark text-center">
                                     Enterprise
                                 </h4>

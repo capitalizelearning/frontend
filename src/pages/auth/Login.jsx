@@ -10,7 +10,7 @@ export default function Login() {
 
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [error, setError] = React.useState(null);
+    const [error, setError] = React.useState("Login is not yet implemented. Keep an eye on your email for updates!");
 
     React.useEffect(() => {
         // Bypass login on mount if already authenticated
@@ -24,16 +24,17 @@ export default function Login() {
     }
 
     async function handleLogin() {
-        setError(null);
-        const { success, error } = login(username, password);
-        if (success) {
-            navigate(getNextPage());
-        }
-        setError(error);
+        return;
+        // setError(null);
+        // const { success, error } = login(username, password);
+        // if (success) {
+        //     navigate(getNextPage());
+        // }
+        // setError(error);
     }
 
     return (
-        <div className="container min-h-screen mx-auto flex flex-col items-center justify-center">
+        <div className="container min-h-screen mx-auto flex flex-col items-center justify-center overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
             <div className="flex flex-col md:flex-row overflow-hidden gap-16 p-8">
                 <div className="hidden md:block">
                     <img
@@ -43,22 +44,37 @@ export default function Login() {
                     />
                 </div>
                 <div className="flex flex-col items-center justify-center w-full">
-                    <h1 className="text-4xl font-bold text-center mb-2">
+                    <h1 className="text-4xl font-bold md:text-center mb-4 w-full">
                         Welcome Back!
                     </h1>
-                    <p className="text-center mb-4 text-lg text-neutral-700">
+                    <p className="md:text-center mb-6 w-full text-[#93949E] dark:text-[#9B9CA1]">
                         Access your future financial freedom ahead!
                     </p>
                     <div className="flex flex-col w-full max-w-sm gap-6">
                         <form
                             onSubmit={handleLogin}
-                            className="space-y-4"
+                            className="space-y-6"
                             method="POST">
                             {error && (
                                 <ul
-                                    class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                                    className="px-4 py-2 bg-[#FEE2E2] dark:bg-[#FEE2E2] rounded-md text-[#C53030] dark:text-[#C53030] border-l-4 border-[#C53030] dark:border-[#C53030"
                                     role="alert">
-                                    <li>{message}</li>
+                                    <li className="flex items-start gap-2">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            className="w-5 h-5 flex-shrink-0">
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                                            />
+                                        </svg>
+                                        <span className="dark:text-[#FBFBFB">{error}</span>
+                                    </li>
                                 </ul>
                             )}
                             <div className="relative z-0">
@@ -69,12 +85,12 @@ export default function Login() {
                                     onChange={(e) =>
                                         setUsername(e.target, value)
                                     }
-                                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-[#118B4E] peer"
+                                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                     placeholder=" "
                                 />
                                 <label
                                     htmlFor="email-label"
-                                    className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-[#118B4E] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
+                                    className="absolute text-sm text-[#9B9CA1] duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-[#02A854] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Email
                                 </label>
                             </div>
@@ -86,27 +102,27 @@ export default function Login() {
                                     onChange={(e) =>
                                         setPassword(e.target.value)
                                     }
-                                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-[#118B4E] peer"
+                                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#FBFBFB] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                     placeholder=" "
                                 />
                                 <label
                                     htmlFor="password-label"
-                                    className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-[#118B4E] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
+                                    className="absolute text-sm text-[#9B9CA1] duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-[#02A854] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
                                     Password
                                 </label>
                             </div>
-                            <div className="flex flex-col md:flex-row justify-between gap-2 md:items-center">
+                            <div className="flex flex-col md:flex-row justify-between gap-3 md:items-center">
                                 <div className="flex items-center">
                                     <input
                                         type="checkbox"
                                         id="remember-me"
                                         name=""
-                                        className="rounded border-gray-300 text-[#118B4E] shadow-sm focus:border-green-400 focus:ring focus:ring-green-200 focus:ring-opacity-50"
+                                        className="w-5 h-5 rounded border-[#161616] dark:border-[#FBFBFB] dark:bg-[#161616] dark:text-[#FBFBFB]"
                                         defaultChecked
                                     />
                                     <label
                                         htmlFor="remember-me"
-                                        className="ml-2 block text-sm text-gray-900">
+                                        className="ml-2 block text-sm dark:text-[#FBFBFB]">
                                         Remember me
                                     </label>
                                 </div>
@@ -119,21 +135,22 @@ export default function Login() {
                             <div className="mb-4">
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#118B4E] hover:bg-primary text-white font-bold py-2 px-4 rounded">
+                                    disabled
+                                    className="cursor-not-allowed w-full bg-[#118B4E] hover:bg-primary text-[#FBFBFB] font-bold py-2 px-4 rounded">
                                     Login
                                 </button>
                             </div>
                         </form>
 
-                        <div className="flex items-center justify-center gap-2">
-                            <span className="flex-1 h-0.5 bg-gray-300"></span>
-                            <span className="text-gray-500">or</span>
-                            <span className="flex-1 h-0.5 bg-gray-300"></span>
+                        <div className="flex items-center justify-center gap-3">
+                            <span className="flex-1 h-0.5 bg-neutral-200 dark:bg-neutral-700"></span>
+                            <span>or</span>
+                            <span className="flex-1 h-0.5 bg-neutral-200 dark:bg-neutral-700"></span>
                         </div>
                         <div className="flex items-center justify-center gap-4">
                             <a
                                 href="#"
-                                className="w-full bg-transparent hover:bg-neutral-200 text-neutral-900  font-bold py-2 px-4 flex items-center justify-center gap-2 rounded border border-neutral-800">
+                                className="w-full bg-transparent hover:bg-neutral-200 text-neutral-900  font-bold py-2 px-4 flex items-center justify-center gap-2 rounded border border-neutral-800 dark:text-[#FBFBFB] dark:border-[#FBFBFB]">
                                 <img
                                     src="https://img.icons8.com/color/24/000000/google-logo.png"
                                     alt="Google"
