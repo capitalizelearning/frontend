@@ -10,7 +10,7 @@ export default function Login() {
 
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [error, setError] = React.useState("Login is not yet implemented. Keep an eye on your email for updates!");
+    const [error, setError] = React.useState("");
 
     React.useEffect(() => {
         // Bypass login on mount if already authenticated
@@ -34,8 +34,8 @@ export default function Login() {
     }
 
     return (
-        <div className="container min-h-screen mx-auto flex flex-col items-center justify-center overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
-            <div className="flex flex-col md:flex-row overflow-hidden gap-16 p-8">
+        <div className="min-h-screen  flex flex-col items-center justify-center overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
+            <div className="flex flex-col md:flex-row overflow-hidden gap-16 p-8 container mx-auto ">
                 <div className="hidden md:block">
                     <img
                         src={ImgSrc}
@@ -73,7 +73,9 @@ export default function Login() {
                                                 d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
                                             />
                                         </svg>
-                                        <span className="dark:text-[#FBFBFB">{error}</span>
+                                        <span className="dark:text-[#FBFBFB">
+                                            {error}
+                                        </span>
                                     </li>
                                 </ul>
                             )}
