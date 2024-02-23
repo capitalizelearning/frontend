@@ -1,5 +1,5 @@
 import { useAuth } from "@/hooks/useAuth";
-import AboutUs from "@/pages/AboutUs.jsx";
+import ContactUs from "@/pages/ContactUs.jsx";
 import Landing from "@/pages/Landing";
 import * as React from "react";
 import {
@@ -27,7 +27,7 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Landing />} />
-                <Route path="about" element={<AboutUs />} />
+                <Route path="contact" element={<ContactUs />} />
                 {/* <Route path="login/" element={<Login />} />
                 <Route path="learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard />} />

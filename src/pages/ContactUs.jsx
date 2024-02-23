@@ -3,7 +3,7 @@ import * as React from "react";
 
 import LandingNav from "@/components/LandingNav";
 
-export default function AboutUs() {
+export default function ContactUs() {
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [message, setMessage] = React.useState("");
@@ -155,7 +155,7 @@ export default function AboutUs() {
                                     Our friendly team is here to help.
                                 </p>
                                 <p className="text-[#02A854] font-bold dark:text-[#33C6AB]">
-                                    support@prestige.com
+                                    capitalize.learning@gmail.com
                                 </p>
                             </div>
                             <div className="border border-[#161616] rounded-xl p-6 flex flex-col gap-4">
@@ -175,7 +175,7 @@ export default function AboutUs() {
                                     Monday - Friday from 8am to 5pm.
                                 </p>
                                 <p className="text-[#02A854] font-bold dark:text-[#33C6AB]">
-                                    +1 234 567 890
+                                    +1 502 536 7229
                                 </p>
                             </div>
                         </div>
