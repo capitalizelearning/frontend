@@ -1,9 +1,6 @@
 import { useAuth } from "@/hooks/useAuth";
 import AboutUs from "@/pages/AboutUs.jsx";
-import Content from "@/pages/Content";
-import Dashboard from "@/pages/Dashboard.jsx";
 import Landing from "@/pages/Landing";
-import Login from "@/pages/auth/Login.jsx";
 import * as React from "react";
 import {
     BrowserRouter,
@@ -31,11 +28,11 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="about" element={<AboutUs />} />
-                <Route path="login/" element={<Login />} />
+                {/* <Route path="login/" element={<Login />} />
                 <Route path="learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard />} />
                     <Route path="/learn/content" element={<Content />} />
-                </Route>
+                </Route> */}
             </Routes>
         </BrowserRouter>
     );

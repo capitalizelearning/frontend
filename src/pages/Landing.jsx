@@ -15,8 +15,27 @@ import Review3Src from "@/assets/imgs/review_3.png";
 import JoinWaitList from "@/components/JoinWaitlist";
 import LandingNav from "@/components/LandingNav";
 import * as React from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Landing() {
+    const location = useLocation();
+    const joinWaitListRef = React.useRef(null);
+
+    React.useEffect(
+        // Scroll to #join-wait-list if the URL has #join-wait-list
+        () => {
+            if (location.hash === "#join-wait-list") scrollToWaitList();
+        },
+        [location.hash]
+    );
+
+    const scrollToWaitList = () => {
+        joinWaitListRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
+
     return (
         <main className="flex flex-col max-w-screen w-full overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
             <LandingNav />
@@ -143,7 +162,7 @@ export default function Landing() {
                 </section>
                 <section id="#features">
                     <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                    <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -285,7 +304,7 @@ export default function Landing() {
                 </section>
                 <section>
                     <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                    <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -318,7 +337,7 @@ export default function Landing() {
                 </section>
                 <section>
                     <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                    <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -640,7 +659,7 @@ export default function Landing() {
                         </div>
                     </div>
                 </section>
-                <section>
+                <section ref={joinWaitListRef}>
                     <JoinWaitList />
                 </section>
             </div>

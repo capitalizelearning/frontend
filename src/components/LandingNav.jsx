@@ -56,7 +56,9 @@ export default function LandingNav() {
                     </button>
                 </div>
                 <div className=" flex-shrink-0 flex-1 md:flex-none">
-                    <img src={LogoSrc} className="h-12 w-12D" alt="logo" />
+                    <a href="/">
+                        <img src={LogoSrc} className="h-12 w-12D" alt="logo" />
+                    </a>
                 </div>
                 {/* Mobile menu */}
                 <ul
@@ -156,9 +158,9 @@ export default function LandingNav() {
                         </svg>
                     </button>
                     <a
-                        href="/login"
+                        href="/#join-wait-list"
                         className="flex items-center gap-1.5 bg-[#002A14] text-white py-1 px-10 rounded-full text-lg font-semibold dark:bg-[#1F1F1F] border dark:border-[#3B3B3B]">
-                        Login
+                        Join Waitlist
                     </a>
                 </div>
             </div>
