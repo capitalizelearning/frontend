@@ -118,7 +118,7 @@ function DownloadCard() {
           </p>
         </div>
       </div>
-      <div className="flex-1 justify-center">
+      <div className="hidden md:block flex-1 justify-center">
         <img src={phoneImg} />
       </div>
     </div>

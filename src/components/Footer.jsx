@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="flex flex-col items-center w-full gap-4">
       <div className="w-full max-w-screen-lg p-3">
-        <div className="flex justify-between mb-5">
+        <div className="flex flex-col gap-6 md:gap-0 md:flex-row justify-between mb-5">
           {/* 1st column */}
           <div>
             <svg
@@ -183,8 +183,8 @@ function Footer() {
         </div>
 
         {/* copyright */}
-        <div className="flex justify-between pt-5 border-t-2 border-t-[#9ca3af0f] mt-10">
-          <div className="text-[#9B9CA1]">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between pt-5 border-t-2 border-t-[#9ca3af0f] mt-10 gap-3 md:gap-0">
+          <div className="text-[#9B9CA1] text-center md:text-left">
             © 2024 Capitalize. All rights reserved.
           </div>
 

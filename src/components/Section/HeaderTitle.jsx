@@ -17,7 +17,7 @@ function SectionHeaderTitle({ title, subTitle, desc, hasSvg = false, svgComponen
             <h2 className={`text-3xl font-extrabold ${hasSvg ? 'text-[#fff]' : 'text-[#002A14] dark:text-white'}`}>
                 {subTitle}
             </h2>
-            <p className="md:w-3/5 text-lg text-text-light md:text-center leading-relaxed mb-12 text-[#9B9CA1]" style={{ maxWidth: 800 }}>
+            <p className="md:w-3/5 text-lg text-text-light text-center leading-relaxed mb-12 text-[#9B9CA1]" style={{ maxWidth: 800 }}>
                 {desc}
             </p>
         </>

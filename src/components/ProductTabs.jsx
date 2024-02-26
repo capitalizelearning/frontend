@@ -26,7 +26,7 @@ function ProductTabs() {
             content: (
                 <div className="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="flex flex-col gap-8">
-                        <div className="flex items-center gap-4">
+                        <div className="flex justify-center md:justify-start items-center gap-4">
                             <span className="p-2 rounded-lg bg-[#111E22] text-[#33ABD1]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -47,10 +47,10 @@ function ProductTabs() {
                                 AI Assistant
                             </span>
                         </div>
-                        <h3 className="text-5xl font-bold">
+                        <h3 className="text-3xl md:text-5xl font-bold text-center md:text-left">
                             Your new ultimate productivity companion
                         </h3>
-                        <p className="text-text-light text-lg leading-relaxed">
+                        <p className="text-text-light text-lg leading-relaxed text-center md:text-left">
                             Designed to seamlessly integrate into your personal
                             <br />
                             and professional life, our AI Assistant is here to revolutionize
@@ -90,7 +90,7 @@ function ProductTabs() {
             content: (
                 <div className="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="flex flex-col gap-8">
-                        <div className="flex items-center gap-4">
+                        <div className="flex justify-center md:justify-start items-center gap-4">
                             <span className="p-2 rounded-lg bg-[#111E22] text-[#33ABD1]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -111,10 +111,10 @@ function ProductTabs() {
                                 Simple Analytics
                             </span>
                         </div>
-                        <h3 className="text-5xl font-bold">
+                        <h3 className="text-3xl md:text-5xl font-bold text-center md:text-left">
                             Your new ultimate productivity companion
                         </h3>
-                        <p className="text-text-light text-lg leading-relaxed">
+                        <p className="text-text-light text-lg leading-relaxed text-center md:text-left">
                             Designed to seamlessly integrate into your personal
                             <br />
                             and professional life, our Simple Analytics is here to
@@ -156,7 +156,7 @@ function ProductTabs() {
             content: (
                 <div className="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="flex flex-col gap-8">
-                        <div className="flex items-center gap-4">
+                        <div className="flex justify-center md:justify-start items-center gap-4">
                             <span className="p-2 rounded-lg bg-[#111E22] text-[#33ABD1]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -177,10 +177,10 @@ function ProductTabs() {
                                 Easy Collaboration
                             </span>
                         </div>
-                        <h3 className="text-5xl font-bold">
+                        <h3 className="text-3xl md:text-5xl font-bold text-center md:text-left">
                             Your new ultimate productivity companion
                         </h3>
-                        <p className="text-text-light text-lg leading-relaxed">
+                        <p className="text-text-light text-lg leading-relaxed text-center md:text-left">
                             Designed to seamlessly integrate into your personal
                             <br />
                             and professional life, our Easy Collaboration is here to
@@ -222,7 +222,7 @@ function ProductTabs() {
             content: (
                 <div className="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="flex flex-col gap-8">
-                        <div className="flex items-center gap-4">
+                        <div className="flex justify-center md:justify-start items-center gap-4">
                             <span className="p-2 rounded-lg bg-[#111E22] text-[#33ABD1]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -243,10 +243,10 @@ function ProductTabs() {
                                 Smart Automation
                             </span>
                         </div>
-                        <h3 className="text-5xl font-bold">
+                        <h3 className="text-3xl md:text-5xl font-bold text-center md:text-left">
                             Your new ultimate productivity companion
                         </h3>
-                        <p className="text-text-light text-lg leading-relaxed">
+                        <p className="text-text-light text-lg leading-relaxed text-center md:text-left">
                             Designed to seamlessly integrate into your personal
                             <br />
                             and professional life, our Smart Automation is here to
@@ -275,7 +275,7 @@ function ProductTabs() {
 
     return (
         <div>
-            <ul className="w-full max-w-screen-lg flex items-center overflow-x-auto rounded-full bg-[#161616] text-[#9B9CA1] text-center mb-12">
+            <ul className="w-full max-w-screen-lg flex flex-wrap lg:flex-nowrap items-center overflow-x-auto lg:rounded-full bg-[#161616] text-[#9B9CA1] text-center mb-12">
                 {tabData.map((tab, index) => (
                     <li
                         key={index}

@@ -274,7 +274,7 @@ export default function Features() {
             <div className="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Left Part */}
               <div className="flex flex-col gap-8">
-                <div className="flex items-center gap-4">
+                <div className="flex justify-center md:justify-start items-center gap-4">
                   <span className="p-2 rounded-lg bg-[#33abd126] text-[#33ABD1] border-[#33ABD1]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -295,16 +295,16 @@ export default function Features() {
                     AI Assistant
                   </span>
                 </div>
-                <h3 className="text-4xl font-bold text-white">
+                <h3 className="text-3xl lg:text-4xl text-center md:text-left font-bold text-white mx-3 md:mx-0">
                   Your new ultimate productivity companion
                 </h3>
-                <p className="text-[#9B9CA1] text-md leading-relaxed">
+                <p className="text-[#9B9CA1] text-md leading-relaxed text-center md:text-left mx-3 md:mx-0">
                   Designed to seamlessly integrate into your personal
                   <br />
                   and professional life, our AI Assistant is here to
                   revolutionize the way you accomplish tasks.
                 </p>
-                <div className="flex justify-start">
+                <div className="flex justify-center md:justify-start ">
                   <a
                     href="#"
                     className="bg-[#1F1F1F] text-[#FBFBFB] py-4 px-10 rounded-full text-lg font-semibold "
@@ -314,7 +314,7 @@ export default function Features() {
                 </div>
 
                 {/* Footer Cards */}
-                <div className="flex">
+                <div className="flex mx-3 lg:mx-0">
                   {productLinks?.map((e, index) => (
                     <div key={index} className="flex-1">
                       <CardFooter
@@ -344,7 +344,7 @@ export default function Features() {
             <div className="w-full max-w-screen-lg">
               <div className="lg:flex items-center w-full mx-auto gap-4 my-6 md:my-24">
                 <div className="lg:flex flex-1 flex-col gap-3 md:w-3/5">
-                  <div className="lg:flex items-center gap-4">
+                  <div className="flex justify-center md:justify-start items-center gap-4">
                     <span className="p-2 rounded-lg bg-[#292216] text-[#33ABD1] border-[#E29D37]">
                       <svg
                         width="24"
@@ -363,16 +363,16 @@ export default function Features() {
                       Easy Collaboration
                     </span>
                   </div>
-                  <h3 className="text-3xl font-medium text-white md:w-3/5">
+                  <h3 className="text-3xl font-medium text-white md:w-3/5 text-center md:text-left mt-3 md:mt-0 mb-3 md:md-0">
                     The best solution for seamless productive teamwork
                   </h3>
-                  <p className="text-[#9B9CA1] text-md leading-relaxed md:w-3/5">
+                  <p className="text-[#9B9CA1] text-md leading-relaxed text-center md:text-left mx-3 md:mx-0 md:w-3/5">
                     Working together on documents has never been easier,
                     allowing you and your team to collaborate and provide
                     feedback.
                   </p>
                 </div>
-                <div className="flex md:justify-end">
+                <div className="flex md:justify-end justify-center mt-6 md:mt-0">
                   <a
                     href="#"
                     className="bg-[#1F1F1F] text-[#FBFBFB] py-4 px-10 rounded-full text-lg font-semibold flex"
