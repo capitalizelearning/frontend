@@ -14,9 +14,10 @@ import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 import SectionHeaderTitle from '@/components/Section/HeaderTitle'
 import ProductTabs from '@/components/ProductTabs'
-import CardFooter from '../components/Section/CardFooter'
-import CollabCardComponent from '../components/CollabCard'
-import DownloadCard from '../components/DownloadCard'
+import CardFooter from '@/components/Section/CardFooter'
+import CollabCardComponent from '@/components/CollabCard'
+import DownloadCard from '@/components/DownloadCard'
+import Footer from '@/components/Footer'
 
 export default function Features() {
   const location = useLocation()
@@ -243,7 +244,7 @@ export default function Features() {
         </div>
       </main>
 
-      <main className="flex flex-col max-w-screen w-full overflow-x-hidden bg-[#0F0F0F] dark:text-[#FBFBFB] dark:bg-[#fff]">
+      <main className="flex flex-col max-w-screen w-full overflow-x-hidden bg-[#0F0F0F] dark:text-[#FBFBFB] dark:bg-[#0F0F0F]">
         {/* More Features Section */}
         <section>
           <div className="flex flex-col items-center w-full gap-4 my-12 md:my-32">
@@ -403,6 +404,9 @@ export default function Features() {
             </div>
           </div>
         </section>
+
+        {/* Footer */}
+        <Footer />
       </main>
     </>
   )
