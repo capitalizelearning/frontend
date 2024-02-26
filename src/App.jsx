@@ -10,6 +10,7 @@ import {
     Routes,
     useLocation,
 } from "react-router-dom";
+import Features from "./pages/Features";
 
 function ProtectedRoute({ children, ...props }) {
     const { isAuthenticated } = useAuth();
@@ -28,6 +29,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="contact" element={<ContactUs />} />
+                <Route path="features" element={<Features />} />
                 {/* <Route path="login/" element={<Login />} />
                 <Route path="learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard />} />
