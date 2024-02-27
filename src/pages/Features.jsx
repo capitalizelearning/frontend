@@ -205,7 +205,7 @@ export default function Features() {
         <div className="w-full container mx-auto flex-wrap p-8 md:p-4">
           {/* Product Features */}
           <section>
-            <div className="flex flex-col items-center w-full gap-4 my-12 md:my-32">
+            <div className="flex flex-col items-center w-full gap-4 my-12 md:mb-32 md:mt-16">
               {/* Header Title */}
               <SectionHeaderTitle
                 title={'Features'}
@@ -227,7 +227,7 @@ export default function Features() {
             </div>
           </section>
           <section id="#features">
-            <div className="flex flex-col items-center w-full gap-4 my-12 md:my-32">
+            <div className="flex flex-col items-center w-full gap-4 my-12 md:mb-32">
               {/* Header Title */}
               <SectionHeaderTitle
                 title={'Features'}
@@ -247,7 +247,7 @@ export default function Features() {
       <main className="flex flex-col max-w-screen w-full overflow-x-hidden bg-[#0F0F0F] dark:text-[#FBFBFB] dark:bg-[#0F0F0F]">
         {/* More Features Section */}
         <section>
-          <div className="flex flex-col items-center w-full gap-4 my-12 md:my-32">
+          <div className="flex flex-col items-center w-full gap-4 my-12 md:mb-32">
             <SectionHeaderTitle
               title={'Features'}
               subTitle={'And so much more'}

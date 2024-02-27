@@ -1,6 +1,7 @@
 import { useAuth } from "@/hooks/useAuth";
 import ContactUs from "@/pages/ContactUs.jsx";
 import Landing from "@/pages/Landing";
+import Features from "@/pages/Features";
 import * as React from "react";
 import {
     BrowserRouter,
@@ -10,7 +11,6 @@ import {
     Routes,
     useLocation,
 } from "react-router-dom";
-import Features from "./pages/Features";
 
 function ProtectedRoute({ children, ...props }) {
     const { isAuthenticated } = useAuth();
