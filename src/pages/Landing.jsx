@@ -149,11 +149,11 @@ export default function Landing() {
                             capabilities that are designed to elevate your
                             experience and help you achieve more.
                         </p>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full f">
+                        <div className="flex flex-wrap items-center justify-center gap-8 w-full">
                             <img src={Feature1Src} alt="feature_1" />
                             <img src={Feature2Src} alt="feature_2" />
                         </div>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full">
+                        <div className="flex items-center flex-wrap justify-center gap-8 w-full">
                             <img src={Feature3Src} alt="feature_3" />
                             <img src={Feature4Src} alt="feature_4" />
                             <img src={Feature5Src} alt="feature_5" />
