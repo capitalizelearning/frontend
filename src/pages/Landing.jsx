@@ -328,7 +328,7 @@ export default function Landing() {
                             business and their feedback vividly illustrates the
                             success of our efforts.
                         </p>
-                        <div className="flex flex-col md:flex-row items-center gap-8 w-full justify-center">
+                        <div className="flex flex-wrap items-center gap-8 w-full justify-center">
                             <img src={Review1Src} alt="review_1" />
                             <img src={Review2Src} alt="review_2" />
                             <img src={Review3Src} alt="review_3" />
