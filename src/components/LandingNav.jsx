@@ -1,5 +1,5 @@
-import LogoSrc from "@/assets/imgs/svgs/logo.svg";
 import DarkLogoSrc from "@/assets/imgs/svgs/darkLogo.svg";
+import LogoSrc from "@/assets/imgs/svgs/logo.svg";
 import { useTheme } from "@/hooks/useTheme";
 import * as React from "react";
 
@@ -11,12 +11,12 @@ export default function LandingNav() {
     React.useEffect(() => {
         const handleResize = () => {
             setVpWidth(window.innerWidth);
-            setShowMenu(false);
+            if (vpWidth > 768) setShowMenu(false);
         };
         window.addEventListener("resize", handleResize);
         handleResize();
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [vpWidth]);
 
     return (
         <nav className="flex border-b border-[#161616] relative">
@@ -59,7 +59,11 @@ export default function LandingNav() {
                     </div>
                     <div className=" flex-shrink-0 flex-1 md:flex-none">
                         <a href="/">
-                            <img src={theme === "dark" ? DarkLogoSrc : LogoSrc} className="h-12 w-12D" alt="logo" />
+                            <img
+                                src={theme === "dark" ? DarkLogoSrc : LogoSrc}
+                                className="h-12 w-12D"
+                                alt="logo"
+                            />
                         </a>
                     </div>
                     {/* Desktop menu */}
@@ -70,12 +74,16 @@ export default function LandingNav() {
                             </a>
                         </li>
                         <li>
-                            <a href="/features" className="text-text hover:underline">
+                            <a
+                                href="/features"
+                                className="text-text hover:underline">
                                 Features
                             </a>
                         </li>
                         <li>
-                            <a href="/contact" className="text-text hover:underline">
+                            <a
+                                href="/contact"
+                                className="text-text hover:underline">
                                 Contact Us
                             </a>
                         </li>
@@ -147,7 +155,9 @@ export default function LandingNav() {
                         </a>
                     </li>
                     <li>
-                        <a href="/features" className="text-text hover:underline">
+                        <a
+                            href="/features"
+                            className="text-text hover:underline">
                             Features
                         </a>
                     </li>

@@ -9,13 +9,12 @@ import Feature3Src from "@/assets/imgs/features_tile_3.png";
 import Feature4Src from "@/assets/imgs/features_tile_4.png";
 import Feature5Src from "@/assets/imgs/features_tile_5.png";
 import Feature6Src from "@/assets/imgs/features_tile_6.png";
-import Review1Src from "@/assets/imgs/review_1.png";
-import Review2Src from "@/assets/imgs/review_2.png";
-import Review3Src from "@/assets/imgs/review_3.png";
 import JoinWaitList from "@/components/JoinWaitlist";
 import LandingNav from "@/components/LandingNav";
 import * as React from "react";
 import { useLocation } from "react-router-dom";
+import SectionHeaderTitle from "@/components/Section/HeaderTitle";
+
 
 export default function Landing() {
     const location = useLocation();
@@ -303,35 +302,24 @@ export default function Landing() {
                     </div>
                 </section>
                 <section>
-                    <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
-                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth="1.5"
-                                stroke="currentColor"
-                                className="w-6 h-6">
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                                />
-                            </svg>
-                            Features
+                    <div className="flex flex-col items-center w-full gap-4 my-12 md:mb-32 md:mt-16">
+                        {/* Header Title */}
+                        <SectionHeaderTitle
+                            title={"Features"}
+                            subTitle={"Product Features"}
+                            desc={`We take immense pride in presenting you with a
+                                    comprehensive array of powerful tools and
+                                    capabilities that are designed to elevate your
+                                    experience and help you achieve more.`}
+                        />
+                        <div className="flex flex-wrap items-center justify-center gap-8 w-full f">
+                            <img src={Feature1Src} alt="feature_1" />
+                            <img src={Feature2Src} alt="feature_2" />
                         </div>
-                        <h2 className="text-6xl font-bold text-primary-dark">
-                            What are people saying
-                        </h2>
-                        <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
-                            Our customers continue to be the core of our
-                            business and their feedback vividly illustrates the
-                            success of our efforts.
-                        </p>
-                        <div className="flex flex-wrap items-center gap-8 w-full justify-center">
-                            <img src={Review1Src} alt="review_1" />
-                            <img src={Review2Src} alt="review_2" />
-                            <img src={Review3Src} alt="review_3" />
+                        <div className="flex flex-wrap items-center justify-center gap-8 w-full">
+                            <img src={Feature3Src} alt="feature_3" />
+                            <img src={Feature4Src} alt="feature_4" />
+                            <img src={Feature5Src} alt="feature_5" />
                         </div>
                     </div>
                 </section>
@@ -357,9 +345,9 @@ export default function Landing() {
                             Supercharge your growth
                         </h2>
                         <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
-                            Whether you're a small startup, a growing mid-sized
-                            business, or a large enterprise, we have plans
-                            tailored to your specific demands.
+                            Whether you&apos;re a small startup, a growing
+                            mid-sized business, or a large enterprise, we have
+                            plans tailored to your specific demands.
                         </p>
                         <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-screen-lg">
                             <div className="flex flex-col items-center gap-4 border border-solid border-[#242424] rounded-lg p-6 dark:bg-[#161616] dark:border-[#242424]">
