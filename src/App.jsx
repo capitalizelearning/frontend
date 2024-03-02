@@ -2,6 +2,7 @@ import ContactUs from "@/pages/ContactUs.jsx";
 import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./pages/About";
 
 // function ProtectedRoute() {
 //     const { isAuthenticated } = useAuth();
@@ -20,6 +21,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/contact" element={<ContactUs />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/features" element={<Features />} />
                 {/* <Route path="login/" element={<Login />} /> */}
                 {/* <Route path="learn" element={<ProtectedRoute />}>
