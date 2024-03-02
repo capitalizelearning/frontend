@@ -16,14 +16,14 @@ function SectionHeaderTitle({
                     {title}
                 </p>
             ) : (
-                <div className="flex items-center gap-1.5 border border-solid bg-[#2364564f] border-[#33C6AB] text-[#33C6AB] rounded-full px-4 py-1.5 font-bold dark:border-[#33C6AB] dark:text-[#33C6AB]">
+                <div className="flex items-center gap-1.5 border border-solid dark:bg-[#2364564f] border-[#33C6AB] text-[#33C6AB] rounded-full px-4 py-1.5 font-bold dark:border-[#33C6AB] dark:text-[#33C6AB]">
                     {svgComponent}
                     {title}
                 </div>
             )}
             <h2
                 className={`text-3xl font-extrabold ${
-                    hasSvg ? "text-[#fff]" : "text-[#002A14] dark:text-white"
+                    hasSvg ? "dark:text-[#fff]" : "text-[#002A14] dark:text-white"
                 }`}>
                 {subTitle}
             </h2>
