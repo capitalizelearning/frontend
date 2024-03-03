@@ -270,7 +270,7 @@ export default function Features() {
                                             AI Assistant
                                         </span>
                                     </div>
-                                    <h3 className="text-3xl lg:text-4xl text-center md:text-left font-bold text-white mx-3 md:mx-0">
+                                    <h3 className="text-3xl lg:text-4xl text-center md:text-left font-bold dark:text-white mx-3 md:mx-0">
                                         Your new ultimate productivity companion
                                     </h3>
                                     <p className="text-[#9B9CA1] text-md leading-relaxed text-center md:text-left mx-3 md:mx-0">
@@ -341,7 +341,7 @@ export default function Features() {
                                                 Easy Collaboration
                                             </span>
                                         </div>
-                                        <h3 className="text-3xl font-medium text-white md:w-3/5 text-center md:text-left mt-3 md:mt-0 mb-3 md:md-0">
+                                        <h3 className="text-3xl font-medium text-black dark:text-white md:w-3/5 text-center md:text-left mt-3 md:mt-0 mb-3 md:md-0">
                                             The best solution for seamless
                                             productive teamwork
                                         </h3>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import PropTypes from "prop-types";
 import React from "react";
@@ -8,6 +9,7 @@ function SectionHeaderTitle({
     desc,
     hasSvg = false,
     svgComponent,
+    isLarge = false
 }) {
     return (
         <>
@@ -16,14 +18,14 @@ function SectionHeaderTitle({
                     {title}
                 </p>
             ) : (
-                <div className="flex items-center gap-1.5 border border-solid bg-[#2364564f] border-[#33C6AB] text-[#33C6AB] rounded-full px-4 py-1.5 font-bold dark:border-[#33C6AB] dark:text-[#33C6AB]">
+                hasSvg && svgComponent && <div className="flex items-center gap-1.5 border border-solid dark:bg-[#2364564f] border-[#33C6AB] text-[#33C6AB] rounded-full px-4 py-1.5 font-bold dark:border-[#33C6AB] dark:text-[#33C6AB]">
                     {svgComponent}
                     {title}
                 </div>
             )}
             <h2
-                className={`text-3xl font-extrabold ${
-                    hasSvg ? "text-[#fff]" : "text-[#002A14] dark:text-white"
+                className={`${isLarge ? 'md:w-3/5 text-center text-6xl' : 'text-3xl'} font-extrabold ${
+                    hasSvg ? "dark:text-[#fff]" : "text-[#002A14] dark:text-white"
                 }`}>
                 {subTitle}
             </h2>

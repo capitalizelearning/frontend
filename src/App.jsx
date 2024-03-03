@@ -31,6 +31,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/contact" element={<ContactUs />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/features" element={<Features />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/learn" element={<ProtectedRoute />}>

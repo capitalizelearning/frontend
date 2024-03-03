@@ -75,6 +75,13 @@ export default function LandingNav() {
                         </li>
                         <li>
                             <a
+                                href="/about"
+                                className="text-text hover:underline">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a
                                 href="/features"
                                 className="text-text hover:underline">
                                 Features

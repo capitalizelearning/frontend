@@ -302,19 +302,22 @@ export default function Landing() {
                     </div>
                 </section>
                 <section>
-                    <div className="flex flex-col items-center w-full gap-4 my-12 md:mb-32 md:mt-16">
-                        {/* Header Title */}
-                        <SectionHeaderTitle
-                            title={"Features"}
-                            subTitle={"Product Features"}
-                            desc={`We take immense pride in presenting you with a
-                                    comprehensive array of powerful tools and
-                                    capabilities that are designed to elevate your
-                                    experience and help you achieve more.`}
-                        />
-                        <div className="flex flex-wrap items-center justify-center gap-8 w-full f">
-                            <img src={Feature1Src} alt="feature_1" />
-                            <img src={Feature2Src} alt="feature_2" />
+                    <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
+                        <div className="flex items-center gap-1.5 border border-solid border-[#02A854] text-[#02A854] rounded-full px-2 py-1.5 font-medium dark:border-[#33C6AB] dark:text-[#33C6AB]">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-6 h-6">
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
+                                />
+                            </svg>
+                            Testimonials
                         </div>
                         <div className="flex flex-wrap items-center justify-center gap-8 w-full">
                             <img src={Feature3Src} alt="feature_3" />
@@ -339,7 +342,7 @@ export default function Landing() {
                                     d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                                 />
                             </svg>
-                            Testimonials
+                            Pricing
                         </div>
                         <h2 className="text-6xl font-bold text-primary-dark">
                             Supercharge your growth
@@ -360,7 +363,7 @@ export default function Landing() {
                                     kickstart your journey.{" "}
                                 </p>
                                 <p className="text-3xl font-bold text-primary-dark">
-                                    $9.99{" "}
+                                    Free{" "}
                                     <span className="text-lg font-normal text-text-light">
                                         /month
                                     </span>
@@ -459,7 +462,7 @@ export default function Landing() {
                                     ahead of the competition.
                                 </p>
                                 <p className="text-3xl font-bold text-primary-dark">
-                                    $19.99{" "}
+                                    $4.99{" "}
                                     <span className="text-lg font-normal text-text-light">
                                         /month
                                     </span>
@@ -550,7 +553,7 @@ export default function Landing() {
                             </div>
                             <div className="flex flex-col items-center gap-4 border border-solid border-[#242424] rounded-lg p-6 dark:bg-[#161616] dark:border-[#242424]">
                                 <h4 className="text-3xl text-primary-dark text-center">
-                                    Enterprise
+                                   Schools 
                                 </h4>
                                 <p>
                                     For companies who want advanced features
