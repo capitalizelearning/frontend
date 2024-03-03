@@ -13,8 +13,6 @@ import JoinWaitList from "@/components/JoinWaitlist";
 import LandingNav from "@/components/LandingNav";
 import * as React from "react";
 import { useLocation } from "react-router-dom";
-import SectionHeaderTitle from "@/components/Section/HeaderTitle";
-
 
 export default function Landing() {
     const location = useLocation();
@@ -553,7 +551,7 @@ export default function Landing() {
                             </div>
                             <div className="flex flex-col items-center gap-4 border border-solid border-[#242424] rounded-lg p-6 dark:bg-[#161616] dark:border-[#242424]">
                                 <h4 className="text-3xl text-primary-dark text-center">
-                                   Schools 
+                                    Schools
                                 </h4>
                                 <p>
                                     For companies who want advanced features

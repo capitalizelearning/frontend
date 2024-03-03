@@ -14,6 +14,7 @@ import {
     Routes,
     useLocation,
 } from "react-router-dom";
+import NotFound from "./pages/NotFound";
 
 function ProtectedRoute() {
     const { isAuthenticated } = useAuth();
@@ -39,6 +40,7 @@ export default function App() {
                     <Route path="/learn/" element={<Dashboard />} />
                     <Route path="/learn/content/" element={<Content />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     );
