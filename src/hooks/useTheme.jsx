@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import * as React from "react";
 
 const ThemeContext = React.createContext();
@@ -31,4 +32,8 @@ export const ThemeProvider = ({ children }) => {
             {children}
         </ThemeContext.Provider>
     );
+};
+
+ThemeProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 };
