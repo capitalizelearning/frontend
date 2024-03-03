@@ -1,4 +1,5 @@
 import { useAuth } from "@/hooks/useAuth";
+import About from "@/pages/About";
 import ContactUs from "@/pages/ContactUs.jsx";
 import Content from "@/pages/Content";
 import Dashboard from "@/pages/Dashboard";
