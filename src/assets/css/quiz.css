@@ -1,0 +1,16 @@
+/* Add your custom CSS for animations here */
+.option-item {
+    transition: background-color 0.3s;
+  }
+  
+  .option-item.correct {
+    background-color: #4caf50;
+  }
+  
+  .option-item.incorrect {
+    background-color: #ff5722;
+  }
+  
+  .quiz-navigation {
+  }
+  
