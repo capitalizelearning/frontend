@@ -48,13 +48,13 @@ function ProductTabs() {
                             </span>
                         </div>
                         <h3 className="text-3xl md:text-5xl font-bold text-center md:text-left">
-                            Your new ultimate productivity companion
+                            Your new virtual mentor
                         </h3>
                         <p className="text-text-light text-lg leading-relaxed text-center md:text-left">
-                            Designed to seamlessly integrate into your personal
+                        Empowering you to build a strong foundation
                             <br />
-                            and professional life, our AI Assistant is here to revolutionize
-                            the way you accomplish tasks.
+                            in financial literacy and make confident 
+                            financial decisions for a secure future.
                         </p>
                         <div className="flex justify-center">
                             <a
@@ -86,7 +86,7 @@ function ProductTabs() {
                     />
                 </svg>
             ),
-            label: 'Simple Analytics',
+            label: 'Progress Analytics',
             content: (
                 <div className="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="flex flex-col gap-8">
@@ -108,17 +108,17 @@ function ProductTabs() {
                                 </svg>
                             </span>
                             <span className="text-lg font-bold text-[#33ABD1]">
-                                Simple Analytics
+                                Progress Analytics
                             </span>
                         </div>
                         <h3 className="text-3xl md:text-5xl font-bold text-center md:text-left">
-                            Your new ultimate productivity companion
+                            Gain insights into your financial literacy journey
                         </h3>
                         <p className="text-text-light text-lg leading-relaxed text-center md:text-left">
-                            Designed to seamlessly integrate into your personal
+                            Track engagement with course modules,
                             <br />
-                            and professional life, our Simple Analytics is here to
-                            revolutionize the way you accomplish tasks.
+                            including videos, articles, and quizzes, 
+                            to monitor your learning progress and enhance your financial knowledge efficiently.
                         </p>
                         <div className="flex justify-center">
                             <a

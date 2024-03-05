@@ -1,6 +1,6 @@
 import GetStartedSrc from "@/assets/imgs/get_started.png";
 import * as React from "react";
-
+``
 export default function JoinWaitList() {
     const [email, setEmail] = React.useState("");
     const [waitListMessage, setWaitListMessage] = React.useState("");
