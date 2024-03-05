@@ -8,24 +8,24 @@ import Landing from "@/pages/Landing";
 import Login from "@/pages/auth/Login";
 import {
     BrowserRouter,
-    Navigate,
-    Outlet,
+    // Navigate,
+    // Outlet,
     Route,
     Routes,
-    useLocation,
+    // useLocation,
 } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 
-function ProtectedRoute() {
-    const { isAuthenticated } = useAuth();
-    const location = useLocation();
-    if (isAuthenticated) {
-        return <Outlet />;
-    } else {
-        let nextPage = location.pathname || "/";
-        return <Navigate to={`/login?next=${nextPage}`} />;
-    }
-}
+// function ProtectedRoute() {
+//     const { isAuthenticated } = useAuth();
+//     const location = useLocation();
+//     if (isAuthenticated) {
+//         return <Outlet />;
+//     } else {
+//         let nextPage = location.pathname || "/";
+//         return <Navigate to={`/login?next=${nextPage}`} />;
+//     }
+// }
 
 export default function App() {
     return (
@@ -36,10 +36,10 @@ export default function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/features" element={<Features />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/learn" element={<ProtectedRoute />}>
+                {/* <Route path="/learn" element={<ProtectedRoute />}> */}
                     <Route path="/learn/" element={<Dashboard />} />
                     <Route path="/learn/content/" element={<Content />} />
-                </Route>
+                {/* </Route> */}
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>

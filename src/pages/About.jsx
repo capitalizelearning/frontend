@@ -5,31 +5,51 @@ import aboutUsCover from "@/assets/imgs/about-cover.png"
 import TeamMember from "@/components/TeamMember";
 import CoreValues from "@/components/Section/CoreValues";
 import AccordionItem from "@/components/AccordionItem";
-import SavingsCard from "@/components/SavingsCard";
+import JoinWaitList from "@/components/JoinWaitlist";
+import * as React from "react";
+import { useLocation } from "react-router-dom";
 
 export default function About() {
     const faqItems = [
         {
             question: 'Is my data safe with your platform?',
-            answer: 'Shipping time is set by our delivery partners, according to the delivery method chosen by you. Additional details can be found in the order confirmation.',
+            answer: 'Absolutely. We prioritize the security and privacy of your data above all else. Our platform employs state-of-the-art encryption techniques to safeguard your information from unauthorized access.',
         },
         {
             question: 'What kind of customer support do you offer?',
-            answer: 'Shipping time is set by our delivery partners, according to the delivery method chosen by you. Additional details can be found in the order confirmation.',
+            answer: 'We take pride in providing exceptional customer support to ensure your experience with our platform is seamless and hassle-free. Our dedicated support team is available to assist you via email, phone, and live chat during business hours.',
         },
         {
-            question: 'How does the pricing for your SaaS solution work?',
-            answer: 'Shipping time is set by our delivery partners, according to the delivery method chosen by you. Additional details can be found in the order confirmation.',
+            question: 'How does the pricing for your subscription work?',
+            answer: 'Our subscription pricing is designed to be flexible and transparent, allowing you to choose the plan that best fits your needs. With our monthly subscription, you pay a fixed fee on a monthly basis, granting you access to our platform and its features for the duration of your subscription period. The pricing tiers are based on factors such as the level of service, the number of users, and additional features included. We strive to offer competitive pricing while delivering exceptional value and quality service to our subscribers. For detailed information on our pricing plans and what each includes, please visit our pricing page or contact our sales team for personalized assistance.',
         },
         {
             question: 'Can I cancel my subscription at any time?',
-            answer: 'Shipping time is set by our delivery partners, according to the delivery method chosen by you. Additional details can be found in the order confirmation.',
+            answer: 'Yes, you have the flexibility to cancel your subscription at any time, no questions asked. We understand that circumstances may change, and we want to make sure you have full control over your subscription.',
         },
         {
             question: 'Can I upgrade or downgrade my subscription plan?',
-            answer: 'Shipping time is set by our delivery partners, according to the delivery method chosen by you. Additional details can be found in the order confirmation.',
+            answer: "Yes, absolutely! We understand that your needs may evolve over time, which is why we offer the flexibility to upgrade or downgrade your subscription plan as necessary. Whether you require additional features and resources or you're looking to streamline your expenses, you can easily make changes to your subscription through your account settings or by reaching out to our customer support team. ",
         },
     ];
+
+    const location = useLocation();
+    const joinWaitListRef = React.useRef(null);
+
+    React.useEffect(
+        // Scroll to #join-wait-list if the URL has #join-wait-list
+        () => {
+            if (location.hash === "#join-wait-list") scrollToWaitList();
+        },
+        [location.hash]
+    );
+
+    const scrollToWaitList = () => {
+        joinWaitListRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
     return (
         <>
             <main className="flex flex-col max-w-screen w-full overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
@@ -89,8 +109,8 @@ export default function About() {
                                     <div className="flex flex-wrap">
                                         {/* Member #1 */}
                                         <TeamMember
-                                            name="Jennifer Lee"
-                                            title="Entrepreneur"
+                                            name="Sathvik Bhavaraju"
+                                            title="CEO"
                                             imageUrl="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
                                             linkedin="#"
                                             twitter="#"
@@ -99,8 +119,8 @@ export default function About() {
 
                                         {/* Member #2 */}
                                         <TeamMember
-                                            name="Alex Schiller"
-                                            title="Marketing Talent"
+                                            name="Gopal Tadinada"
+                                            title="Head of AI"
                                             imageUrl="https://images.unsplash.com/photo-1634896941598-b6b500a502a7?fit=clamp&w=400&h=400&q=80"
                                             linkedin="#"
                                             twitter="#"
@@ -109,8 +129,8 @@ export default function About() {
 
                                         {/* Member #3 */}
                                         <TeamMember
-                                            name="Katie Adams"
-                                            title="Product Manager"
+                                            name="Anirudh Srinivasan"
+                                            title="Head of Content"
                                             imageUrl="https://images.unsplash.com/photo-1634193295627-1cdddf751ebf?fit=clamp&w=400&h=400&q=80"
                                             linkedin="#"
                                             twitter="#"
@@ -119,24 +139,24 @@ export default function About() {
 
                                         {/* Member #4 */}
                                         <TeamMember
-                                            name="Tim Williams"
-                                            title="Senior Engineer"
+                                            name="Don Eros"
+                                            title="Head of Design"
                                             imageUrl="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
                                             linkedin="#"
                                             twitter="#"
                                             instagram="#"
                                         />
                                         <TeamMember
-                                            name="Paul Smith"
-                                            title="Software Tester"
+                                            name="Vedant Garg"
+                                            title="Head of Front-end Developement"
                                             imageUrl="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
                                             linkedin="#"
                                             twitter="#"
                                             instagram="#"
                                         />
                                         <TeamMember
-                                            name="Lisa Jackson"
-                                            title="Sales Manager"
+                                            name="Colby Cooper"
+                                            title="Head of Back-end Development"
                                             imageUrl="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
                                             linkedin="#"
                                             twitter="#"
@@ -174,9 +194,9 @@ export default function About() {
                                             icon={<svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M15.6875 0.0751953C13.8041 0.0751953 12.1325 0.818633 11 2.09645C9.8675 0.818633 8.19594 0.0751953 6.3125 0.0751953C4.67208 0.0771801 3.09942 0.729713 1.93947 1.88966C0.779518 3.04962 0.126985 4.62228 0.125 6.2627C0.125 13.0446 10.0447 18.4633 10.4666 18.6911C10.6305 18.7794 10.8138 18.8256 11 18.8256C11.1862 18.8256 11.3695 18.7794 11.5334 18.6911C11.9553 18.4633 21.875 13.0446 21.875 6.2627C21.873 4.62228 21.2205 3.04962 20.0605 1.88966C18.9006 0.729713 17.3279 0.0771801 15.6875 0.0751953ZM15.1728 13.4214C13.8671 14.5294 12.4714 15.5266 11 16.4027C9.52864 15.5266 8.13287 14.5294 6.82719 13.4214C4.79562 11.6786 2.375 9.02082 2.375 6.2627C2.375 5.21841 2.78984 4.21689 3.52827 3.47846C4.26669 2.74004 5.26821 2.3252 6.3125 2.3252C7.98125 2.3252 9.37813 3.20645 9.95844 4.62582C10.0429 4.83273 10.1871 5.0098 10.3726 5.13444C10.5581 5.25908 10.7765 5.32565 11 5.32565C11.2235 5.32565 11.4419 5.25908 11.6274 5.13444C11.8129 5.0098 11.9571 4.83273 12.0416 4.62582C12.6219 3.20645 14.0188 2.3252 15.6875 2.3252C16.7318 2.3252 17.7333 2.74004 18.4717 3.47846C19.2102 4.21689 19.625 5.21841 19.625 6.2627C19.625 9.02082 17.2044 11.6786 15.1728 13.4214Z" fill="#FBFBFB" />
                                             </svg>}
-                                            title={'Work-life balance'}
-                                            desc={`Promoting a healthy equilibrium 
-                                            between work and personal life`}
+                                            title={'Montessori learning'}
+                                            desc={`Promoting a self-driven learning 
+                                            experience`}
                                         />
                                         <CoreValues
                                             icon={<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,14 +291,8 @@ export default function About() {
                 </section>
 
                 {/* Download */}
-                <section>
-                    <div className="w-full container mx-auto flex-wrap p-8 md:p-4">
-                        <div className="flex flex-col items-center w-full gap-4 mb-12 ">
-                            <div className="w-full max-w-screen-lg p-3">
-                                <SavingsCard />
-                            </div>
-                        </div>
-                    </div>
+                <section ref={joinWaitListRef}>
+                    <JoinWaitList />
                 </section>
 
                 {/* Footer */}
