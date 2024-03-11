@@ -10,27 +10,28 @@ export default function Login() {
 
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [remember, setRemember] = React.useState(true);
     const [error, setError] = React.useState("");
 
     React.useEffect(() => {
-        // Bypass login on mount if already authenticated
-        if (isAuthenticated) {
-            navigate(getNextPage());
+        console.log("Login -> isAuthenticated", isAuthenticated);
+        if (isAuthenticated)
+            navigate(
+                new URLSearchParams(location.search).get("next") || "/learn"
+            );
+    }, [isAuthenticated, navigate, location.search]);
+
+    async function handleLogin(e) {
+        e.preventDefault();
+        setError(null);
+        const { success, error } = await login(username, password, remember);
+        if (success && !error) {
+            let next = new URLSearchParams(location.search).get("next");
+            navigate(next || "/learn");
+        } else {
+            setError(error);
+            setPassword("");
         }
-    }, []);
-
-    function getNextPage() {
-        return new URLSearchParams(location.search).get("next") || "/learn";
-    }
-
-    async function handleLogin() {
-        return;
-        // setError(null);
-        // const { success, error } = login(username, password);
-        // if (success) {
-        //     navigate(getNextPage());
-        // }
-        // setError(error);
     }
 
     return (
@@ -44,17 +45,14 @@ export default function Login() {
                     />
                 </div>
                 <div className="flex flex-col items-center justify-center w-full">
-                    <h1 className="text-4xl font-bold md:text-center mb-4 w-full">
+                    <h1 className="text-4xl font-bold text-center mb-4 w-full">
                         Welcome Back!
                     </h1>
-                    <p className="md:text-center mb-6 w-full text-[#93949E] dark:text-[#9B9CA1]">
+                    <p className="text-center mb-6 w-full text-[#93949E] dark:text-[#9B9CA1]">
                         Access your future financial freedom ahead!
                     </p>
                     <div className="flex flex-col w-full max-w-sm gap-6">
-                        <form
-                            onSubmit={handleLogin}
-                            className="space-y-6"
-                            method="POST">
+                        <form className="space-y-6">
                             {error && (
                                 <ul
                                     className="px-4 py-2 bg-[#FEE2E2] dark:bg-[#FEE2E2] rounded-md text-[#C53030] dark:text-[#C53030] border-l-4 border-[#C53030] dark:border-[#C53030"
@@ -98,7 +96,7 @@ export default function Login() {
                             </div>
                             <div className="relative z-0">
                                 <input
-                                    type="text"
+                                    type="password"
                                     id="password-label"
                                     value={password}
                                     onChange={(e) =>
@@ -118,9 +116,12 @@ export default function Login() {
                                     <input
                                         type="checkbox"
                                         id="remember-me"
+                                        defaultChecked
+                                        onChange={(e) =>
+                                            setRemember(e.target.checked)
+                                        }
                                         name=""
                                         className="w-5 h-5 rounded border-[#161616] dark:border-[#FBFBFB] dark:bg-[#161616] dark:text-[#FBFBFB]"
-                                        defaultChecked
                                     />
                                     <label
                                         htmlFor="remember-me"
@@ -137,8 +138,8 @@ export default function Login() {
                             <div className="mb-4">
                                 <button
                                     type="submit"
-                                    disabled
-                                    className="cursor-not-allowed w-full bg-[#118B4E] hover:bg-primary text-[#FBFBFB] font-bold py-2 px-4 rounded">
+                                    onClick={(e) => handleLogin(e)}
+                                    className="w-full bg-[#118B4E] hover:bg-[#0B6E3E] dark:bg-[#02A854] dark:hover:bg-[#02A854] text-[#FBFBFB] font-bold py-2 px-4 rounded">
                                     Login
                                 </button>
                             </div>
@@ -162,7 +163,7 @@ export default function Login() {
                         </div>
 
                         <p className="text-center">
-                            Don't have an account?{" "}
+                            Don&apos;t have an account?{" "}
                             <a href="#" className="text-[#118B4E]">
                                 Register
                             </a>
