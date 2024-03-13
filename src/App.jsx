@@ -2,8 +2,8 @@
 import { useAuth } from "@/hooks/useAuth";
 import About from "@/pages/About";
 import ContactUs from "@/pages/ContactUs.jsx";
-import Content from "@/pages/Content";
 import Dashboard2 from "@/pages/Dashboard/Dashboard";
+import LessonDetail from "@/pages/Dashboard/LessonDetail";
 import Quiz from "@/pages/Dashboard/Quiz";
 import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
@@ -21,7 +21,6 @@ import {
 function ProtectedRoute() {
     const { isAuthenticated } = useAuth();
     const location = useLocation();
-    console.log("ProtectedRoute -> isAuthenticated", isAuthenticated);
     if (isAuthenticated) return <Outlet />;
     else {
         let nextPage = location.pathname || "/learn";
@@ -41,8 +40,8 @@ export default function App() {
                 {/* Requires Auth: */}
                 <Route path="/learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard2 />} />
-                    <Route path="/learn/content/" element={<Content />} />
-                    <Route path="/learn/quiz" element={<Quiz />} />
+                    <Route path="/learn/:lessonId" element={<LessonDetail />} />
+                    <Route path="/learn/:lessonId/quiz/:quizId" element={<Quiz />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
