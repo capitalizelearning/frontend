@@ -93,10 +93,39 @@ const Layout = ({ children }) => {
                             <h6 className="text-xl font-semibold">
                                 Welcome back, {user?.username || "User"}
                             </h6>
-                            <p className="font-medium text-[#00000050]">
+                            <p className="font-medium text-[#00000050] dark:text-[#DCE4E750]">
                                 Let do the best today
                             </p>
                         </div>
+                        <div className="relative">
+                            <input
+                                type="text"
+                                className="w-full h-10 rounded-lg border border-[#66666610] pe-4 ps-10 focus:outline-none focus:border-[#66666620] dark:focus:border-[#3B3B3B] dark:bg-[#1F1F1F]  "
+                                placeholder="Search"
+                            />
+                            <button className="absolute top-1/2 left-2 transform -translate-y-1/2 text-neutral-500 dark:text-neutral-400">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="w-6 h-6">
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <img
+                            className="w-14 h-14 rounded-full cursor-pointer"
+                            src="https://randomuser.me/api/portraits/men/1.jpg"
+                            alt="User dropdown"
+                        />
+
                         <button
                             type="button"
                             onClick={toggleTheme}

@@ -1,6 +1,16 @@
 import PropTypes from "prop-types";
 
-export default function LoadingSpinner({ size = 8 }) {
+export default function LoadingSpinner({ size = "8" }) {
+    try {
+        let sizeNum = parseInt(size);
+        if (isNaN(sizeNum)) {
+            throw new TypeError("The size prop must be a number.");
+        }
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+
     return (
         <div className="text-center">
             <div role="status">
@@ -25,5 +35,5 @@ export default function LoadingSpinner({ size = 8 }) {
     );
 }
 LoadingSpinner.propTypes = {
-    size: PropTypes.number,
+    size: PropTypes.string,
 };

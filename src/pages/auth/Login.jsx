@@ -36,17 +36,18 @@ export default function Login() {
     }
 
     return (
-        <div className="h-screen w-screen flex flex-col md:flex-row items-center justify-center overflow-x-hidden gap-8 dark:bg-[#0F0F0F] dark:text-[#FBFBFB] p-8">
-            {loading ? (
+        <div className="h-screen w-screen overflow-clip dark:bg-[#0F0F0F] dark:text-[#FBFBFB] ">
+            {loading && (
                 <div className="flex flex-col items-center gap-4 w-full justify-center h-full">
                     <p className="text-[#161616] dark:text-[#FBFBFB]">
                         Trying to sign you in
                     </p>
-                    <LoadingSpinner size={12} />
+                    <LoadingSpinner size="10" />
                 </div>
-            ) : (
-                <React.Fragment>
-                    <div className="flex flex-col items-center justify-center w-full">
+            )}
+            {!loading && (
+                <div className="h-screen w-screen flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div className="flex flex-col items-center justify-center h-full w-full p-8">
                         <div>
                             <img
                                 src={LogoSrc}
@@ -181,12 +182,14 @@ export default function Login() {
                             </p>
                         </div>
                     </div>
-                    <img
-                        src={ImgSrc}
-                        alt="Login"
-                        className="hidden md:inline w-full h-auto rounded-lg aspect-square"
-                    />
-                </React.Fragment>
+                    <div className="hidden m    d:flex w-full h-auto p-8 items-center justify-center">
+                        <img
+                            src={ImgSrc}
+                            alt="Login"
+                            className="w-full h-auto"
+                        />
+                    </div>
+                </div>
             )}
         </div>
     );

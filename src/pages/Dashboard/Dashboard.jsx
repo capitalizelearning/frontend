@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout/Layout";
 import { useContent } from "@/hooks/useContent";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 function Dashboard() {
     const { content, loading } = useContent();
@@ -11,7 +12,7 @@ function Dashboard() {
             {/* content */}
             <div className="flex-1 flex flex-col gap-12 pt-12">
                 {loading ? (
-                    <p>Loading...</p>
+                    <LoadingSpinner size="10" />
                 ) : (
                     <ul className="bg-white border rounded-lg border-neutral-500 dark:border-neutral-500 p-4 divide-y divide-neutral-400 dark:divide-neutral-400 dark:bg-neutral-800">
                         {content.map((lesson) => (
