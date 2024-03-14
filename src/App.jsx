@@ -11,6 +11,7 @@ import Quiz from "./pages/Dashboard/Quiz";
 // import Login from "@/pages/auth/Login";
 
 import NotFound from "./pages/NotFound";
+import QuizPage from "./pages/Dashboard/QuizPage";
 
 // function ProtectedRoute() {
 //     const { isAuthenticated } = useAuth();
@@ -32,7 +33,8 @@ export default function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/features" element={<Features />} />
                 <Route path="/dashboard" element={<Dashboard2 />} />
-                <Route path="/quiz" element={<Quiz />} />
+                {/* <Route path="/quiz" element={<Quiz />} /> */}
+                <Route path="/quiz" element={<QuizPage />} />
 
                 {/* <Route path="login/" element={<Login />} /> */}
                 {/* <Route path="learn" element={<ProtectedRoute />}>

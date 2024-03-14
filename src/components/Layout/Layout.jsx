@@ -87,7 +87,7 @@ const Layout = ({ children }) => {
             {/* content */}
 
             <div className="flex-1 p-10 text-2xl font-bold bg-[#DCE4E7] dark:bg-[#0F0F0F]">
-                <div className='w-full h-full container mx-auto md:p-4 lg:w-10/12'>
+                <div className='w-full h-full container mx-auto md:p-4'>
                     <div className='flex justify-end'>
                         <button
                             type="button"
