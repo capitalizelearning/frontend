@@ -1,27 +1,29 @@
 import Layout from "@/components/Layout/Layout";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { useContent } from "@/hooks/useContent";
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const QuizComponent = () => {
+    const navigate = useNavigate();
     const { lessonId, quizId } = useParams();
     const { getQuizQuestions, checkQuizAnswer } = useContent();
     const [questions, setQuestions] = React.useState([]);
     const [currentQuestion, setCurrentQuestion] = React.useState(0);
     const [selectedOption, setSelectedOption] = React.useState(null);
     const [showResult, setShowResult] = React.useState(false);
+    const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
         // Fetch quiz questions from the server
+        if (!lessonId || !quizId) return null;
         getQuizQuestions(lessonId)
-            .then((data) => {
-                console.log(data);
-                setQuestions(data);
-            })
+            .then((data) => setQuestions(data))
             .catch((error) => {
                 console.error(error);
+                navigate("/404");
             });
-    }, [lessonId, quizId, getQuizQuestions]);
+    }, [lessonId, quizId, getQuizQuestions, navigate]);
 
     const handleOptionSelect = (option) => {
         setSelectedOption(option);
@@ -32,47 +34,42 @@ const QuizComponent = () => {
             alert("Please select an option");
             return;
         }
-        // eslint-disable-next-line no-unused-vars
-        let isCorrect = checkAnswer(
+
+        checkAnswer(
             questions[currentQuestion].id,
             String(questions[currentQuestion].options.indexOf(selectedOption))
-        );
-        // TODO: handle user feedback based on the response
-
-        if (selectedOption === questions[currentQuestion].correctAnswer) {
-            // Handle correct answer logic
-        } else {
-            // Handle incorrect answer logic
-        }
-
-        setSelectedOption(null);
-        setShowResult(false);
-        setCurrentQuestion((prev) => prev + 1);
+        ).then((status) => {
+            if (status) {
+                setError(null);
+                setSelectedOption(null);
+                if (currentQuestion === questions.length - 1) {
+                    setShowResult(true);
+                } else {
+                    setCurrentQuestion((prev) => prev + 1);
+                }
+            } else {
+                setError(
+                    `${selectedOption} is not the correct answer. Please try again.`
+                );
+                setSelectedOption(null);
+            }
+        });
     };
 
-    const checkAnswer = (questionId, answerIndex) => {
-        console.log(questionId, answerIndex);
-        return checkQuizAnswer(quizId, questionId, answerIndex)
-            .then((data) => {
-                console.log(data);
-                alert(data.isCorrect);
-                return data.isCorrect;
-            })
-            .catch(console.error);
+    const checkAnswer = async (questionId, answerIndex) => {
+        try {
+            let data = await checkQuizAnswer(quizId, questionId, answerIndex);
+            return data.isCorrect;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
     };
 
     const handlePrevQuestion = () => {
         setSelectedOption(null);
         setShowResult(false);
         setCurrentQuestion((prev) => prev - 1);
-    };
-
-    const handleCheckAnswer = () => {
-        let status = checkAnswer(
-            questions[currentQuestion].id,
-            String(questions[currentQuestion].options.indexOf(selectedOption))
-        );
-        setShowResult(status);
     };
 
     return (
@@ -95,6 +92,11 @@ const QuizComponent = () => {
                                     </p>
                                 </div>
                             </div>
+                            {error && (
+                                <div className="w-full  bg-red-500 text-white p-4 rounded-lg">
+                                    {error}
+                                </div>
+                            )}
                             <div className="w-full pl-4">
                                 <div className="quiz-options grid grid-cols-2 gap-4">
                                     {questions[currentQuestion].options.map(
@@ -135,12 +137,6 @@ const QuizComponent = () => {
                                     Previous
                                 </button>
                                 <button
-                                    className="btn-check mx-2 disabled:hidden text-black dark:text-[#F5F5F5] py-3 px-5 rounded-lg"
-                                    onClick={handleCheckAnswer}
-                                    disabled={selectedOption === null}>
-                                    Check Answer
-                                </button>
-                                <button
                                     className="btn-next ml-2 text-black dark:text-[#F5F5F5] py-3 px-5 rounded-lg disabled:hidden"
                                     onClick={handleNextQuestion}
                                     disabled={
@@ -151,7 +147,7 @@ const QuizComponent = () => {
                             </div>
                         </React.Fragment>
                     ) : (
-                        JSON.stringify(questions)
+                        <LoadingSpinner size="10" />
                     )}
                 </div>
             </div>

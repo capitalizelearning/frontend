@@ -40,8 +40,11 @@ export default function App() {
                 {/* Requires Auth: */}
                 <Route path="/learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard2 />} />
+                    <Route
+                        path="/learn/:lessonId/quiz/:quizId"
+                        element={<Quiz />}
+                    />
                     <Route path="/learn/:lessonId" element={<LessonDetail />} />
-                    <Route path="/learn/:lessonId/quiz/:quizId" element={<Quiz />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>

@@ -22,6 +22,8 @@ export const AuthProvider = ({ children }) => {
         const savedToken = localStorage.getItem("authToken") || null;
         if (savedToken) {
             setAuthToken(savedToken);
+        } else {
+            setAuthToken(null);
         }
     }, []);
 
@@ -30,6 +32,7 @@ export const AuthProvider = ({ children }) => {
      */
     React.useEffect(() => {
         if (authToken) {
+            setLoading(true);
             const fetchUser = async () => {
                 const res = await fetch("/api/auth/profile/", {
                     headers: {
@@ -44,6 +47,8 @@ export const AuthProvider = ({ children }) => {
                 setLoading(false);
             };
             fetchUser();
+        } else {
+            setLoading(false);
         }
     }, [authToken]);
 
