@@ -1,14 +1,20 @@
-import ActiveLink from '@/components/ActiveLink'
+import ActiveLink from "@/components/ActiveLink";
+import { useAuth } from "@/hooks/useAuth";
 
 function MenuLinks() {
+    const { logout } = useAuth();
     return (
-        <nav className='px-5'>
-            <ActiveLink to="/dashboard" label="Dashboard" />
+        <nav className="px-5 h-full flex flex-col">
+            <ActiveLink to="/learn/" label="Dashboard" />
             <ActiveLink to="#" label="Messages" />
             <ActiveLink to="#" label="News" />
-            <ActiveLink to="/quiz" label="Quiz" />
+            <ActiveLink to="/learn/quiz" label="Quiz" />
+            <ActiveLink to="#" label="Settings" classNames="mt-auto" />
+            <button onClick={logout} className="appearance-none">
+                <ActiveLink to="" label="Logout" />
+            </button>
         </nav>
-    )
+    );
 }
 
-export default MenuLinks
+export default MenuLinks;

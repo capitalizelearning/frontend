@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 
 const QuizPage = () => {
@@ -158,35 +158,6 @@ const QuizPage = () => {
 
                 </div>
 
-                {/* Dark Mode Toggle */}
-                <div className="absolute top-4 right-4">
-                    <input
-                        type="checkbox"
-                        id="darkModeToggle"
-                        checked={darkMode}
-                        onChange={() => setDarkMode(!darkMode)}
-                        className="hidden"
-                    />
-                    <label
-                        htmlFor="darkModeToggle"
-                        className="cursor-pointer flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-full"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className={`h-6 w-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                            />
-                        </svg>
-                    </label>
-                </div>
             </div>
         </Layout>
     );
