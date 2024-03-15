@@ -4,7 +4,7 @@ import About from "@/pages/About";
 import ContactUs from "@/pages/ContactUs.jsx";
 import Dashboard2 from "@/pages/Dashboard/Dashboard";
 import LessonDetail from "@/pages/Dashboard/LessonDetail";
-// import Quiz from "@/pages/Dashboard/Quiz";
+import QuizPage from "@/pages/Dashboard/QuizPage";
 import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/NotFound";
@@ -18,7 +18,6 @@ import {
     useLocation,
 } from "react-router-dom";
 
-import QuizPage from "./pages/Dashboard/QuizPage";
 import TradeIndex from "./pages/Trade/TradeIndex";
 // import Dashboard from "./pages/Dashboard";
 
@@ -52,10 +51,8 @@ export default function App() {
                 <Route path="/features" element={<Features />} />
                 <Route path="/dashboard" element={<Dashboard2 />} />
                 <Route path="/quiz" element={<QuizPage />} />
-                <Route path="/trade" element={<TradeIndex />} />
+                <Route path="/trade/simulation" element={<TradeIndex />} />
 
-                {/* <Route path="/learn/content/" element={<Content/>} /> */}
-                {/* </Route> */}
                 <Route path="login/" element={<Login />} />
                 {/* Requires Auth: */}
                 <Route path="/learn" element={<ProtectedRoute />}>

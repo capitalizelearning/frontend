@@ -9,6 +9,7 @@ function MenuLinks() {
             <ActiveLink to="#" label="Messages" />
             <ActiveLink to="#" label="News" />
             <ActiveLink to="/learn/quiz" label="Quiz" />
+            <ActiveLink to="/trade/simulation" label="Trade Simulation" />
             <ActiveLink to="#" label="Settings" classNames="mt-auto" />
             <button onClick={logout} className="appearance-none">
                 <ActiveLink to="" label="Logout" />
