@@ -19,6 +19,7 @@ import {
 } from "react-router-dom";
 
 import QuizPage from "./pages/Dashboard/QuizPage";
+import TradeIndex from "./pages/Trade/TradeIndex";
 // import Dashboard from "./pages/Dashboard";
 
 // function ProtectedRoute() {
@@ -51,6 +52,7 @@ export default function App() {
                 <Route path="/features" element={<Features />} />
                 <Route path="/dashboard" element={<Dashboard2 />} />
                 <Route path="/quiz" element={<QuizPage />} />
+                <Route path="/trade" element={<TradeIndex />} />
 
                 {/* <Route path="/learn/content/" element={<Content/>} /> */}
                 {/* </Route> */}
