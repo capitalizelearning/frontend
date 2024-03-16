@@ -17,6 +17,19 @@ import {
     useLocation,
 } from "react-router-dom";
 
+import TradeIndex from "./pages/Trade/TradeIndex";
+// import Dashboard from "./pages/Dashboard";
+
+// function ProtectedRoute() {
+//     const { isAuthenticated } = useAuth();
+//     const location = useLocation();
+//     if (isAuthenticated) {
+//         return <Outlet />;
+//     } else {
+//         let nextPage = location.pathname || "/";
+//         return <Navigate to={`/login?next=${nextPage}`} />;
+//     }
+// }
 function ProtectedRoute() {
     const { isAuthenticated } = useAuth();
     const location = useLocation();
@@ -37,6 +50,7 @@ export default function App() {
                 <Route path="/features" element={<Features />} />
                 <Route path="/dashboard" element={<Dashboard2 />} />
                 <Route path="/quiz" element={<QuizPage />} />
+                <Route path="/trade/simulation" element={<TradeIndex />} />
 
                 <Route path="login/" element={<Login />} />
                 {/* Requires Auth: */}
