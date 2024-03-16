@@ -1,4 +1,3 @@
-// import { useAuth } from "@/hooks/useAuth";
 import { useAuth } from "@/hooks/useAuth";
 import About from "@/pages/About";
 import ContactUs from "@/pages/ContactUs.jsx";
@@ -43,11 +42,11 @@ export default function App() {
                 {/* Requires Auth: */}
                 <Route path="/learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard2 />} />
+                    <Route path="/learn/:lessonId" element={<LessonDetail />} />
                     <Route
                         path="/learn/:lessonId/quiz/:quizId"
                         element={<QuizPage />}
                     />
-                    <Route path="/learn/:lessonId" element={<LessonDetail />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>

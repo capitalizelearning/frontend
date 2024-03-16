@@ -1,116 +1,60 @@
 import Layout from "@/components/Layout/Layout";
+import { useContent } from "@/hooks/useContent";
 import { useTheme } from "@/hooks/useTheme";
-import { useState } from "react";
+import * as React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const QuizPage = () => {
+    const navigate = useNavigate();
+    const { lessonId, quizId } = useParams();
+    const { getQuizQuestions, checkQuizAnswer } = useContent();
     const { theme } = useTheme();
-    const [selectedQuestion, setSelectedQuestion] = useState(1);
-    const [answers, setAnswers] = useState({});
+    const [questions, setQuestions] = React.useState([]);
+    const [currentQuestion, setCurrentQuestion] = React.useState({});
+    const [selectedAnswer, setSelectedAnswer] = React.useState(null);
 
-    const questions = [
-        {
-            id: 1,
-            title: "Question 1",
-            details: "Details of Question 1",
-        },
-        {
-            id: 2,
-            title: "Question 2",
-            details: "Details of Question 2",
-        },
-        {
-            id: 3,
-            title: "Question 3",
-            details: "Details of Question 3",
-        },
-        {
-            id: 4,
-            title: "Question 1",
-            details: "Details of Question 1",
-        },
-        {
-            id: 5,
-            title: "Question 2",
-            details: "Details of Question 2",
-        },
-        {
-            id: 6,
-            title: "Question 3",
-            details: "Details of Question 3",
-        },
-        {
-            id: 7,
-            title: "Question 1",
-            details: "Details of Question 1",
-        },
-        {
-            id: 8,
-            title: "Question 2",
-            details: "Details of Question 2",
-        },
-        {
-            id: 9,
-            title: "Question 3",
-            details: "Details of Question 3",
-        },
-        {
-            id: 10,
-            title: "Question 1",
-            details: "Details of Question 1",
-        },
-        {
-            id: 11,
-            title: "Question 2",
-            details: "Details of Question 2",
-        },
-        {
-            id: 12,
-            title: "Question 3",
-            details: "Details of Question 3",
-        },
-        {
-            id: 13,
-            title: "Question 1",
-            details: "Details of Question 1",
-        },
-        {
-            id: 14,
-            title: "Question 2",
-            details: "Details of Question 2",
-        },
-        {
-            id: 15,
-            title: "Question 3",
-            details: "Details of Question 3",
-        },
-        {
-            id: 16,
-            title: "Question 1",
-            details: "Details of Question 1",
-        },
-        {
-            id: 17,
-            title: "Question 2",
-            details: "Details of Question 2",
-        },
-        {
-            id: 18,
-            title: "Question 3",
-            details: "Details of Question 3",
-        },
-    ];
+    React.useEffect(() => {
+        // Fetch quiz questions from the server
+        if (!lessonId || !quizId) return null;
+        getQuizQuestions(quizId)
+            .then((data) => {
+                setQuestions(data);
+                setCurrentQuestion(data[0]);
+            })
+            .catch((error) => {
+                console.error(error);
+                navigate("/404");
+            });
+    }, [lessonId, quizId, getQuizQuestions, navigate]);
 
-    const handleQuestionSelect = (questionId) => {
-        setSelectedQuestion(questionId);
+    const handleChangeQuestion = (question) => {
+        setCurrentQuestion(question);
+        setSelectedAnswer(null);
     };
 
-    const handleAnswerChange = (e) => {
-        setAnswers({ ...answers, [selectedQuestion]: e.target.value });
-    };
-
-    const handleSubmit = () => {
-        // Handle submission logic here
-        console.log(answers);
+    const handleCheckAnswer = async () => {
+        if (selectedAnswer === null) return;
+        try {
+            const data = await checkQuizAnswer(
+                quizId,
+                currentQuestion.id,
+                selectedAnswer
+            );
+            if (data.is_correct) {
+                setCurrentQuestion({
+                    ...currentQuestion,
+                    correct: true,
+                });
+            } else {
+                setCurrentQuestion({
+                    ...currentQuestion,
+                    correct: false,
+                });
+            }
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
     };
 
     return (
@@ -125,17 +69,48 @@ const QuizPage = () => {
                         {questions.map((question, index) => (
                             <div
                                 key={question.id}
-                                onClick={() =>
-                                    handleQuestionSelect(question.id)
-                                }
+                                onClick={() => handleChangeQuestion(question)}
                                 className={`p-4 rounded-lg cursor-pointer flex items-center justify-center text-center font-thin
                                 ${
-                                    selectedQuestion === question.id
+                                    question.id === currentQuestion.id
                                         ? "bg-[#33c6ab] text-white"
                                         : "dark:bg-gray-800 bg-[#fefefe] my-2 dark:text-white"
                                 }`}>
                                 <span className="text-md">
                                     {"Question " + (index + 1)}
+                                </span>
+                                <span className="ml-2">
+                                    {question.score ? (
+                                        question.score === question.weight ? (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth={1.5}
+                                                stroke="currentColor"
+                                                className="w-6 h-6">
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="m4.5 12.75 6 6 9-13.5"
+                                                />
+                                            </svg>
+                                        ) : (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className="w-6 h-6">
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M6 18 18 6M6 6l12 12"
+                                                />
+                                            </svg>
+                                        )
+                                    ) : null}
                                 </span>
                             </div>
                         ))}
@@ -144,31 +119,78 @@ const QuizPage = () => {
 
                 {/* Question Details */}
                 <div className="md:w-3/4 p-4 flex flex-col justify-center gap-7 md:h-[70vh] mt-5">
-                    <div className="mb-4 flex flex-col gap-5">
-                        {/* <p className="font-bold">Details:</p> */}
-                        <p className="text-xl dark:text-[#f3f3f3] font-semibold">
-                            {
-                                questions.find((q) => q.id === selectedQuestion)
-                                    ?.details
-                            }
-                        </p>
-                        <p className="text-3xl dark:text-[#fefefe]">
-                            Which is the longest river in the world?
-                        </p>
-                    </div>
-                    <textarea
-                        className="min-h-[30vh] w-full p-4 mb-4 rounded dark:bg-[#242424] outline-none"
-                        placeholder="Type your answer here..."
-                        value={answers[selectedQuestion] || ""}
-                        onChange={handleAnswerChange}
-                    />
-                    <div>
-                        <button
-                            onClick={handleSubmit}
-                            className="px-4 py-2 bg-[#1F1F1F] text-white rounded hover:bg-[#1F1F1F] font-mediu text-lg">
-                            Submit
-                        </button>
-                    </div>
+                    {questions && questions.length > 0 && (
+                        <React.Fragment>
+                            <div className="mb-4 flex flex-col gap-5">
+                                {/* <p className="font-bold">Details:</p> */}
+                                <p className="text-3xl dark:text-[#f3f3f3] font-semibold">
+                                    {currentQuestion.question}
+                                </p>
+                                <div className="flex items-center gap-3 w-full">
+                                    <p className="text-sm dark:text-[#fefefe]">
+                                        Worth {currentQuestion.weight} point(s)
+                                    </p>
+                                    {currentQuestion.score && (
+                                        <React.Fragment>
+                                            <p className="text-sm dark:text-[#fefefe]">
+                                                {currentQuestion.score} points
+                                                earned.
+                                            </p>
+                                            <p className="text-sm dark:text-[#fefefe]">
+                                                {(currentQuestion.score /
+                                                    currentQuestion.weight) *
+                                                    100}
+                                                %
+                                            </p>
+                                        </React.Fragment>
+                                    )}
+                                </div>
+                                <div className="grid grid-flow-row grid-cols-2 gap-4">
+                                    {currentQuestion.options.map(
+                                        (option, index) => (
+                                            <button
+                                                key={index}
+                                                disabled={
+                                                    currentQuestion.score !==
+                                                    null
+                                                }
+                                                className={`p-4 rounded 
+                                                ${
+                                                    selectedAnswer === index
+                                                        ? "bg-[#33c6ab] text-white"
+                                                        : "bg-[#fefefe] dark:bg-gray-800 dark:text-white"
+                                                }`}
+                                                onClick={() =>
+                                                    setSelectedAnswer(index)
+                                                }>
+                                                {option}
+                                            </button>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+                            <div>
+                                {currentQuestion.score ? (
+                                    <p className="text-sm dark:text-[#fefefe]">
+                                        {currentQuestion.score ===
+                                        currentQuestion.weight
+                                            ? "Correct"
+                                            : "Incorrect"}
+                                    </p>
+                                ) : (
+                                    <button
+                                        className={`bg-[#33c6ab] text-white p-3 rounded-lg ${
+                                            selectedAnswer === null &&
+                                            "opacity-50 cursor-not-allowed"
+                                        }`}
+                                        onClick={() => handleCheckAnswer()}
+                                        disabled={selectedAnswer === null}>
+                                        Submit Answer
+                                    </button>
+                                )}
+                            </div>
+                        </React.Fragment>
+                    )}
                 </div>
             </div>
         </Layout>

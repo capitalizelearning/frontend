@@ -51,18 +51,13 @@ export const ContentProvider = ({ children }) => {
         return response.json();
     }
 
-    async function getQuizQuestions(lessonId, quizId = null) {
-        const response = await fetch(`/api/lessons/${lessonId}/quizzes/`, {
+    async function getQuizQuestions(quizId) {
+        const response = await fetch(`/api/lessons/quizzes/${quizId}/`, {
             headers: {
                 Authorization: `Bearer ${authToken}`,
             },
         });
-        const data = await response.json();
-        if (quizId) {
-            let questions = data.find((quiz) => quiz.id == quizId);
-            return questions.question_list;
-        }
-        return data[0].question_list;
+        return await response.json();
     }
 
     async function checkQuizAnswer(quizId, questionId, answerIndex) {
@@ -74,10 +69,10 @@ export const ContentProvider = ({ children }) => {
                     Authorization: `Bearer ${authToken}`,
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ answer: answerIndex }),
+                body: JSON.stringify({ response: answerIndex }),
             }
         );
-        return response.json();
+        return await response.json();
     }
 
     // async function createLesson(data) {}
