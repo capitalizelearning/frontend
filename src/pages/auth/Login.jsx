@@ -1,9 +1,9 @@
 import ImgSrc from "@/assets/imgs/login.png";
+import LogoSrc from "@/assets/imgs/svgs/logo.svg";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useAuth } from "@/hooks/useAuth";
 import * as React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import LogoSrc from "../../assets/imgs/svgs/logo.svg";
 
 export default function Login() {
     const { login, isAuthenticated, loading } = useAuth();
@@ -184,7 +184,7 @@ export default function Login() {
                     )}
                 </div>
                 <div className="hidden md:flex w-full h-auto p-8 items-center justify-center">
-                    <img src={ImgSrc} alt="Login" className="w-full h-auto" />
+                    <img src={ImgSrc} alt="Login" className="w-full h-auto max-w-3xl" />
                 </div>
             </div>
         </div>

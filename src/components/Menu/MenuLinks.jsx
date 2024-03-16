@@ -6,9 +6,10 @@ function MenuLinks() {
     return (
         <nav className="px-5 h-full flex flex-col">
             <ActiveLink to="/learn/" label="Dashboard" />
+            <ActiveLink to="/learn/lessons" label="Lessons" />
             <ActiveLink to="#" label="Messages" />
             <ActiveLink to="#" label="News" />
-            <ActiveLink to="/learn/quiz" label="Quiz" />
+            <ActiveLink to="#" label="Quiz" />
             <ActiveLink to="/trade/simulation" label="Trade Simulation" />
             <ActiveLink to="#" label="Settings" classNames="mt-auto" />
             <button onClick={logout} className="appearance-none">

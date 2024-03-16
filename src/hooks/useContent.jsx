@@ -42,6 +42,15 @@ export const ContentProvider = ({ children }) => {
         if (isAuthenticated) fetchContent();
     }, [isAuthenticated, fetchContent]);
 
+    async function getQuizzes() {
+        const response = await fetch("/api/lessons/quizzes/", {
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+            },
+        });
+        return response.json();
+    }
+
     async function getLessonQuizzes(lessonId) {
         const response = await fetch(`/api/lessons/quizzes/${lessonId}/`, {
             headers: {
@@ -91,6 +100,7 @@ export const ContentProvider = ({ children }) => {
                 getLessonQuizzes,
                 getQuizQuestions,
                 checkQuizAnswer,
+                getQuizzes,
                 // createLesson,
                 // updateLesson,
                 // deleteLesson,

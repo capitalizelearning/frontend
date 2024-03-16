@@ -2,6 +2,7 @@
 import MenuLinks from "@/components/Menu/MenuLinks";
 import { useAuth } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
+import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
     const { user } = useAuth();
@@ -54,8 +55,8 @@ const Layout = ({ children }) => {
             {/* sidebar */}
             <div className="sidebar flex h-full md:max-h-screen flex-col bg-[#000000] text-blue-100 w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full transition duration-200 ease-in-out md:relative md:translate-x-0">
                 {/* logo */}
-                <a
-                    href="#"
+                <Link
+                    to="/learn/"
                     className="text-white flex item-center justify-center px-4">
                     <svg
                         width={120}
@@ -80,7 +81,7 @@ const Layout = ({ children }) => {
                             fill="#F5F5F5"
                         />
                     </svg>
-                </a>
+                </Link>
                 {/* nav */}
                 <MenuLinks />
             </div>

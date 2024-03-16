@@ -1,6 +1,6 @@
 // ActiveLink.js
-import { NavLink, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import { NavLink, useLocation } from "react-router-dom";
 
 const ActiveLink = ({ to, label, classNames = "" }) => {
     const location = useLocation();

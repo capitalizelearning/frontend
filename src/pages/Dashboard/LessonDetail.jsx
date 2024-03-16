@@ -1,9 +1,9 @@
 import Layout from "@/components/Layout/Layout";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { useContent } from "@/hooks/useContent";
 import * as React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PdfLesson from "../../components/PdfLesson";
-import LoadingSpinner from "@/components/LoadingSpinner";
 
 export default function LessonDetail() {
     const navigate = useNavigate();
@@ -15,7 +15,6 @@ export default function LessonDetail() {
         if (contentLoading) return;
         const lessonId = urlParams.lessonId;
         const lesson = content.find((l) => l.id == lessonId);
-        console.log(lesson);
         setLesson(lesson);
     }, [content, contentLoading, urlParams.lessonId, navigate]);
 
@@ -35,7 +34,7 @@ export default function LessonDetail() {
                                 Please check the URL and try again.
                             </p>
                             <button
-                                onClick={() => navigate("/learn")}
+                                onClick={() => navigate("/learn/")}
                                 className="bg-[#118B4E] hover:bg-[#0B6E3E] dark:bg-[#02A854] dark:hover:bg-[#02A854] text-[#FBFBFB] font-bold py-2 px-4 rounded">
                                 Go back to dashboard
                             </button>

@@ -12,7 +12,7 @@ export default function PdfLesson({ lessonData }) {
                 <button
                     onClick={() =>
                         navigate(
-                            `/learn/${lessonData.id}/quiz/${lessonData.quiz_id_list[0]}`
+                            `/learn/quizzes/${lessonData.quiz_id_list[0]}`
                         )
                     }
                     className="bg-[#118B4E] hover:bg-[#0B6E3E] dark:bg-[#02A854] dark:hover:bg-[#02A854] text-[#FBFBFB] font-bold py-2 px-4 rounded"
