@@ -2,12 +2,7 @@ import { useState } from 'react';
 import Chart from 'react-apexcharts';
 
 const SimulationChart = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [selectedInterval, setSelectedInterval] = useState('15m');
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   const changeInterval = (interval) => {
     setSelectedInterval(interval);
@@ -124,7 +119,7 @@ const SimulationChart = () => {
   ];
 
   return (
-    <div className={`w-full h-screen p-5`}>
+    <div className={`w-full p-5`}>
       <div className="flex justify-between items-center p-4">
         <div className="flex space-x-2">
           <button
@@ -154,9 +149,8 @@ const SimulationChart = () => {
         </div>
       
       </div>
-      <div className="p-4 bg-[#fefefe] dark:bg-[#161616] rounded-2xl">
         <Chart options={chartOptions} series={chartSeries} type="candlestick" height={300} />
-      </div>
+   
     </div>
   );
 };
