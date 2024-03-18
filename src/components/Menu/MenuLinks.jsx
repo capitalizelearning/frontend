@@ -10,7 +10,7 @@ function MenuLinks() {
             {/* <ActiveLink to="#" label="Messages" />
             <ActiveLink to="#" label="News" /> */}
             <ActiveLink to="/learn/quizzes/" label="Quiz" />
-            <ActiveLink to="/learn/trade/simulation" label="Trade Simulation" />
+            {/* <ActiveLink to="/learn/trade/simulation" label="Trade Simulation" /> */}
             {/* <ActiveLink to="#" label="Settings"  /> */}
             <button onClick={logout} className="appearance-none mt-auto">
                 <ActiveLink to="" label="Logout" />
