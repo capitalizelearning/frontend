@@ -4,7 +4,7 @@ import { useTheme } from "@/hooks/useTheme";
 import * as React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const QuizPage = () => {
+export default function QuizPage() {
     const navigate = useNavigate();
     const { quizId } = useParams();
     const { getQuizQuestions, checkQuizAnswer } = useContent();
@@ -32,23 +32,17 @@ const QuizPage = () => {
         setSelectedAnswer(null);
     };
 
-    const handleCheckAnswer = async () => {
+    const handleCheckAnswer = () => {
         if (selectedAnswer === null) return;
-        try {
-            const data = await checkQuizAnswer(
-                quizId,
-                currentQuestion.id,
-                selectedAnswer
-            );
-            setCurrentQuestion({
-                ...currentQuestion,
-                score: data.score,
-                correct_index: data.correct_index,
-            });
-        } catch (error) {
-            console.error(error);
-            return false;
-        }
+        checkQuizAnswer(quizId, currentQuestion.id, selectedAnswer)
+            .then((data) => {
+                setCurrentQuestion({
+                    ...currentQuestion,
+                    score: data.score,
+                    correct_index: data.correct_index,
+                });
+            })
+            .catch(console.error);
     };
 
     return (
@@ -204,6 +198,4 @@ const QuizPage = () => {
             </div>
         </Layout>
     );
-};
-
-export default QuizPage;
+}

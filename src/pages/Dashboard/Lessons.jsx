@@ -9,8 +9,9 @@ export default function Lessons() {
 
     return (
         <Layout>
+             <h1 className="text-4xl font-bold my-6">Lessons</h1>
             {/* content */}
-            <div className="flex-1 flex flex-col gap-12 pt-12">
+            <div className="flex-1 flex flex-col gap-6">
                 {loading ? (
                     <LoadingSpinner size="10" />
                 ) : (

@@ -8,11 +8,11 @@ function MenuLinks() {
             <ActiveLink to="/learn/" label="Dashboard" />
             <ActiveLink to="/learn/lessons" label="Lessons" />
             {/* <ActiveLink to="#" label="Messages" />
-            <ActiveLink to="#" label="News" />
-            <ActiveLink to="#" label="Quiz" />
-            <ActiveLink to="/trade/simulation" label="Trade Simulation" />
-            <ActiveLink to="#" label="Settings" classNames="mt-auto" /> */}
-            <button onClick={logout} className="appearance-none">
+            <ActiveLink to="#" label="News" /> */}
+            <ActiveLink to="/learn/quizzes/" label="Quiz" />
+            {/* <ActiveLink to="/trade/simulation" label="Trade Simulation" /> */}
+            {/* <ActiveLink to="#" label="Settings"  /> */}
+            <button onClick={logout} className="appearance-none mt-auto">
                 <ActiveLink to="" label="Logout" />
             </button>
         </nav>

@@ -5,11 +5,10 @@ import Dashboard2 from "@/pages/Dashboard/Dashboard";
 import LessonDetail from "@/pages/Dashboard/LessonDetail";
 import Lessons from "@/pages/Dashboard/Lessons";
 import QuizPage from "@/pages/Dashboard/QuizPage";
+import Quizzes from "@/pages/Dashboard/Quizzes";
 import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/NotFound";
-import Quizzes from "@/pages/Dashboard/Quizzes";
-import TradeIndex from "@/pages/Trade/TradeIndex";
 import Login from "@/pages/auth/Login";
 import {
     BrowserRouter,
@@ -38,8 +37,7 @@ export default function App() {
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/features" element={<Features />} />
-                <Route path="/dashboard" element={<Dashboard2 />} />
-                <Route path="/trade/simulation" element={<TradeIndex />} />
+                {/* <Route path="/trade/simulation" element={<TradeIndex />} /> */}
 
                 <Route path="login/" element={<Login />} />
                 {/* Requires Auth: */}
