@@ -21,7 +21,7 @@ function TradeTabs() {
                         onClick={() => setSelectedTab(e?.value)}
                         className={`rounded-2xl px-4 py-2  w-full text-[#202020] dark:text-[#fefefe] font-medium uppercase]
                         ${selectedTab === e?.value && 'bg-[#161616] text-[#fefefe]'}
-                          text-[#FBFBFB]`}>
+                          dark:text-[#FBFBFB]`}>
                         <span className="">{e?.title}</span>
                     </button>
                 ))
