@@ -9,6 +9,7 @@ import Quizzes from "@/pages/Dashboard/Quizzes";
 import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/NotFound";
+import TradeIndex from "@/pages/Trade/TradeIndex";
 import Login from "@/pages/auth/Login";
 import {
     BrowserRouter,
@@ -37,7 +38,6 @@ export default function App() {
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/features" element={<Features />} />
-                {/* <Route path="/trade/simulation" element={<TradeIndex />} /> */}
 
                 <Route path="login/" element={<Login />} />
                 {/* Requires Auth: */}
@@ -53,6 +53,7 @@ export default function App() {
                         path="/learn/quizzes/:quizId"
                         element={<QuizPage />}
                     />
+                    <Route path="/learn/trade/simulation" element={<TradeIndex />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
