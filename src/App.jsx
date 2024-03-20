@@ -10,6 +10,7 @@ import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/NotFound";
 import Login from "@/pages/auth/Login";
+import Register from "@/pages/auth/Register";
 import {
     BrowserRouter,
     Navigate,
@@ -25,7 +26,7 @@ function ProtectedRoute() {
     if (isAuthenticated) return <Outlet />;
     else {
         let nextPage = location.pathname || "/learn";
-        return <Navigate to={`/login?next=${nextPage}`} />;
+        return <Navigate to={`/auth/login?next=${nextPage}`} />;
     }
 }
 
@@ -37,8 +38,11 @@ export default function App() {
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/features" element={<Features />} />
-
-                <Route path="login/" element={<Login />} />
+                <Route path="/auth">
+                    <Route path="/auth/" element={<Navigate to="/auth/login" />} />
+                    <Route path="/auth/login" element={<Login />} />
+                    <Route path="/auth/register" element={<Register />} />
+                </Route>
                 {/* Requires Auth: */}
                 <Route path="/learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard2 />} />

@@ -61,7 +61,7 @@ export default function LandingNav() {
                         <a href="/">
                             <img
                                 src={theme === "dark" ? DarkLogoSrc : LogoSrc}
-                                className="h-12 w-12D"
+                                className="h-12 w-12"
                                 alt="logo"
                             />
                         </a>

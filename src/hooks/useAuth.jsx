@@ -98,6 +98,36 @@ export const AuthProvider = ({ children }) => {
     }
 
     /**
+     * Sets a test user's password
+     * @param {string} token - The registration token
+     * @param {string} password  - The new password
+     * @returns {Object} - The result of the operation with success and error properties
+     */
+    async function setInitialPassword(token, password) {
+        if (!token || !password)
+            return { success: false, error: "Token and password are required" };
+
+        const formData = new FormData();
+        formData.append("password", password);
+
+        setLoading(true);
+        const res = await fetch(`/api/auth/register/${token}/`, {
+            method: "POST",
+            body: formData,
+        });
+        if (!res.ok) {
+            const error = await res.json();
+            setLoading(false);
+            return {
+                success: false,
+                error: error.detail,
+            };
+        }
+        setLoading(false);
+        return { success: true, error: null };
+    }
+
+    /**
      * Logout the user and remove the token from localstorage
      */
     function logout() {
@@ -116,6 +146,7 @@ export const AuthProvider = ({ children }) => {
                 loading,
                 login,
                 logout,
+                setInitialPassword,
             }}>
             {children}
         </AuthContext.Provider>
