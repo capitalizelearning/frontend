@@ -44,11 +44,13 @@ export default function Login() {
                     ) : (
                         <>
                             <div>
-                                <img
-                                    src={LogoSrc}
-                                    alt="Logo"
-                                    className="w-20 h-20"
-                                />
+                                <a href="/">
+                                    <img
+                                        src={LogoSrc}
+                                        alt="Logo"
+                                        className="w-20 h-20"
+                                    />
+                                </a>
                             </div>
                             <h1 className="text-4xl font-bold text-center mb-4 w-full">
                                 Welcome Back!
