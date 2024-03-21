@@ -210,58 +210,51 @@ export default function ContactUs() {
                                 <summary className="font-bold">
                                     Is my data safe with your platform?
                                 </summary>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Incidunt esse id aut
-                                necessitatibus exercitationem illo dolorum
-                                deserunt eos voluptates, officia quasi ratione
-                                sint, autem doloremque! Cumque adipisci
-                                assumenda eos dolore.
+                                Absolutely. We prioritize the security and privacy of your data above all else. 
+                                Our platform employs state-of-the-art encryption techniques to safeguard your
+                                information from unauthorized access.
                             </details>
                             <details className="border border-solid border-[#161616] rounded-xl p-6">
                                 <summary className="font-bold">
-                                    What kind of customer support do you offer?
+                                    What kind of customer support do you offer?                                
                                 </summary>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Veniam nesciunt, reprehenderit
-                                quae eligendi aliquam expedita voluptas numquam
-                                neque nulla cupiditate mollitia laborum maxime,
-                                corrupti exercitationem repellat consequatur et
-                                necessitatibus iste.
+                                We take pride in providing exceptional customer support to ensure your 
+                                experience with our platform is seamless and hassle-free. Our dedicated 
+                                support team is available to assist you via email, phone, and live chat 
+                                during business hours.
                             </details>
                             <details className="border border-solid border-[#161616] rounded-xl p-6">
                                 <summary className="font-bold">
-                                    How does the pricing for your SaaS solution
-                                    work?
+                                    How does the pricing for your subscription work?
                                 </summary>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Veniam nesciunt, reprehenderit
-                                quae eligendi aliquam expedita voluptas numquam
-                                neque nulla cupiditate mollitia laborum maxime,
-                                corrupti exercitationem repellat consequatur et
-                                necessitatibus iste.
+                                Our subscription pricing is designed to be flexible and transparent, 
+                                allowing you to choose the plan that best fits your needs. With our monthly 
+                                subscription, you pay a fixed fee on a monthly basis, granting you access to 
+                                our platform and its features for the duration of your subscription period. 
+                                The pricing tiers are based on factors such as the level of service, the number 
+                                of users, and additional features included. We strive to offer competitive pricing 
+                                while delivering exceptional value and quality service to our subscribers. For 
+                                detailed information on our pricing plans and what each includes, please visit our
+                                pricing page or contact our sales team for personalized assistance.
                             </details>
                             <details className="border border-solid border-[#161616] rounded-xl p-6">
                                 <summary className="font-bold">
                                     Can I cancel my subscription at any time?
                                 </summary>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Veniam nesciunt, reprehenderit
-                                quae eligendi aliquam expedita voluptas numquam
-                                neque nulla cupiditate mollitia laborum maxime,
-                                corrupti exercitationem repellat consequatur et
-                                necessitatibus iste.
+                                Yes, you have the flexibility to cancel your subscription at any time, 
+                                no questions asked. We understand that circumstances may change, and 
+                                we want to make sure you have full control over your subscription.
                             </details>
                             <details className="border border-solid border-[#161616] rounded-xl p-6">
                                 <summary className="font-bold">
-                                    Can I upgrade or downgrade my subscription
-                                    plan?
+                                    Can I upgrade or downgrade my subscription plan?
                                 </summary>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Veniam nesciunt, reprehenderit
-                                quae eligendi aliquam expedita voluptas numquam
-                                neque nulla cupiditate mollitia laborum maxime,
-                                corrupti exercitationem repellat consequatur et
-                                necessitatibus iste.
+                                Yes, absolutely! We understand that your needs may evolve over time, 
+                                which is why we offer the flexibility to upgrade or downgrade your 
+                                subscription plan as necessary. Whether you require additional features 
+                                and resources or you're looking to streamline your expenses, you can 
+                                easily make changes to your subscription through your account settings 
+                                or by reaching out to our customer support team.
                             </details>
                         </div>
                     </div>

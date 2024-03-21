@@ -37,8 +37,6 @@ export default function Landing() {
 
     return (
         <>
-
-
             <main className="flex flex-col max-w-screen w-full overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
                 <LandingNav />
 
@@ -57,8 +55,8 @@ export default function Landing() {
                                 <p className="text-lg text-text-light text-center leading-relaxed">
                                     Our app streamlines financial management,
                                     providing a comprehensive starters guide,
-                                    empowering users to achieve greater efficiency
-                                    in their financial goals.
+                                    empowering users to achieve greater
+                                    efficiency in their financial goals.
                                 </p>
                                 <div className="flex justify-center gap-4 mb-6">
                                     <a
@@ -163,20 +161,20 @@ export default function Landing() {
                         </div>
                     </section>
                     <section id="#features">
-                            <div className="flex flex-col items-center w-full gap-4 my-12 md:mb-32">
-                                {/* Header Title */}
-                                <SectionHeaderTitle
-                                    title={"Features"}
-                                    subTitle={"Other Features"}
-                                    desc={`Our platform is designed to provide you with an
+                        <div className="flex flex-col items-center w-full gap-4 my-12 md:mb-32">
+                            {/* Header Title */}
+                            <SectionHeaderTitle
+                                title={"Features"}
+                                subTitle={"Other Features"}
+                                desc={`Our platform is designed to provide you with an
                                 exceptional user experience, catering to the needs
                                 of ambitious professionals and visionary
                                 entrepreneurs.`}
-                                />
-                                {/* Product Tab */}
-                                <ProductTabs />
-                            </div>
-                        </section>
+                            />
+                            {/* Product Tab */}
+                            <ProductTabs />
+                        </div>
+                    </section>
                     <section>
                         <div className="flex flex-col items-center w-full gap-8 my-12 md:my-32">
                             <div className="flex flex-wrap items-center justify-center gap-8 w-full">
@@ -209,8 +207,8 @@ export default function Landing() {
                             </h2>
                             <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
                                 Whether you&apos;re a small startup, a growing
-                                mid-sized business, or a large enterprise, we have
-                                plans tailored to your specific demands.
+                                mid-sized business, or a large enterprise, we
+                                have plans tailored to your specific demands.
                             </p>
                             <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-screen-lg">
                                 <div className="flex flex-col items-center gap-4 border border-solid border-[#242424] rounded-lg p-6 dark:bg-[#161616] dark:border-[#242424]">
@@ -225,7 +223,7 @@ export default function Landing() {
                                     <p className="text-3xl font-bold text-primary-dark">
                                         Free{" "}
                                         <span className="text-lg font-normal text-text-light">
-                                            /{" "}month
+                                            / month
                                         </span>
                                     </p>
                                     <hr className="border border-black my-12 w-full" />
@@ -276,7 +274,7 @@ export default function Landing() {
                                                     d="m4.5 12.75 6 6 9-13.5"
                                                 />
                                             </svg>
-                                            Basic AI Assistant 
+                                            Basic AI Assistant
                                         </li>
                                         <li className="flex items-center gap-1.5">
                                             <svg
@@ -308,7 +306,7 @@ export default function Landing() {
                                                     d="m4.5 12.75 6 6 9-13.5"
                                                 />
                                             </svg>
-                                            Investing Curriculum 
+                                            Investing Curriculum
                                         </li>
                                     </ul>
                                 </div>
@@ -317,14 +315,14 @@ export default function Landing() {
                                         Pro
                                     </h4>
                                     <p>
-                                        For ambitious professionals who require more
-                                        innovative and additional tools to stay
-                                        ahead of the competition.
+                                        For ambitious professionals who require
+                                        more innovative and additional tools to
+                                        stay ahead of the competition.
                                     </p>
                                     <p className="text-3xl font-bold text-primary-dark">
                                         $4.99{" "}
                                         <span className="text-lg font-normal text-text-light">
-                                            /{" "}month
+                                            / month
                                         </span>
                                     </p>
                                     <hr className="border border-black my-12 w-full" />
@@ -359,7 +357,7 @@ export default function Landing() {
                                                     d="m4.5 12.75 6 6 9-13.5"
                                                 />
                                             </svg>
-                                            Options and Forex Simulator 
+                                            Options and Forex Simulator
                                         </li>
                                         <li className="flex items-center gap-1.5">
                                             <svg
@@ -375,7 +373,7 @@ export default function Landing() {
                                                     d="m4.5 12.75 6 6 9-13.5"
                                                 />
                                             </svg>
-                                            Premium AI Assistant 
+                                            Premium AI Assistant
                                         </li>
                                         <li className="flex items-center gap-1.5">
                                             <svg
@@ -439,7 +437,7 @@ export default function Landing() {
                                                     d="m4.5 12.75 6 6 9-13.5"
                                                 />
                                             </svg>
-                                           Custom Teacher and Learner Dashboard 
+                                            Custom Teacher and Learner Dashboard
                                         </li>
                                         <li className="flex items-center gap-1.5">
                                             <svg

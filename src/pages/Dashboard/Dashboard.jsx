@@ -1,14 +1,12 @@
 import Layout from "@/components/Layout/Layout";
 
-function Dashboard() {
-
-  return (
-    <Layout>
-      {/* content */}
-      <div className="flex-1 p-10 text-2xl font-bold">Content goes here</div>
-    </Layout>
-
-  );
+export default function Dashboard() {
+    return (
+        <Layout>
+            {/* content */}
+            <div className="flex-1 flex flex-col gap-12 pt-12">
+                <h1 className="text-2xl font-bold">Dashboard</h1>
+            </div>
+        </Layout>
+    );
 }
-
-export default Dashboard;

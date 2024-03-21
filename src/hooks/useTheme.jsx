@@ -3,7 +3,7 @@ import * as React from "react";
 
 const ThemeContext = React.createContext();
 
-export const useTheme = () => {
+export const useTheme = () => { 
     const context = React.useContext(ThemeContext);
     if (!context) {
         throw new Error("useTheme must be used within a ThemeProvider");
