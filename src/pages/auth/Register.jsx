@@ -17,6 +17,12 @@ export default function Register() {
     const [terms, setTerms] = React.useState(false);
     const [error, setError] = React.useState(null);
 
+    React.useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const token = searchParams.get("token");
+        if (token) setToken(token);
+    }, []);
+
     const calculatePasswordStrength = (password) => {
         var strength = 0;
         if (password.length > 7) strength++;
@@ -46,7 +52,7 @@ export default function Register() {
                 password
             );
             if (success) {
-                navigate("/auth/login")
+                navigate("/auth/login");
                 return;
             }
             setError(error);
