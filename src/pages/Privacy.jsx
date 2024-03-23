@@ -7,7 +7,7 @@ export default function Privacy() {
             <main className="flex flex-col max-w-screen w-full overflow-x-hidden dark:bg-[#0F0F0F] dark:text-[#FBFBFB]">
                 <LandingNav />
 
-                <div className="w-full container mx-auto p-8 md:p-4 my-12 flex items-start gap-8">
+                <div className="w-full container max-w-screen-lg mx-auto p-8 md:p-4 my-12 flex flex-col md:flw-row items-start gap-8">
                     <div className="w-full md:w-1/3 border border-gray-200 dark:border-gray-700 rounded-md p-4">
                         <ul className="list-none">
                             <li>
