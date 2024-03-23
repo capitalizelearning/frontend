@@ -9,6 +9,7 @@ import Quizzes from "@/pages/Dashboard/Quizzes";
 import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/NotFound";
+import Privacy from "@/pages/Privacy";
 import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
 import {
@@ -58,6 +59,7 @@ export default function App() {
                     />
                     {/* <Route path="/learn/trade/simulation" element={<TradeIndex />} /> */}
                 </Route>
+                <Route path="/privacy" element={<Privacy />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
