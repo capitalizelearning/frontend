@@ -43,6 +43,8 @@ export default function App() {
                     <Route path="/auth/login" element={<Login />} />
                     <Route path="/auth/register" element={<Register />} />
                 </Route>
+                {/* <Route path="/dashboard/" element={<Dashboard2 />} /> */}
+
                 {/* Requires Auth: */}
                 <Route path="/learn" element={<ProtectedRoute />}>
                     <Route path="/learn/" element={<Dashboard2 />} />
