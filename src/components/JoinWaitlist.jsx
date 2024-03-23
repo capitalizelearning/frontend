@@ -1,6 +1,7 @@
 import GetStartedSrc from "@/assets/imgs/get_started.png";
 import * as React from "react";
-``
+import { Link } from "react-router-dom";
+
 export default function JoinWaitList() {
     const [email, setEmail] = React.useState("");
     const [waitListMessage, setWaitListMessage] = React.useState("");
@@ -82,9 +83,9 @@ export default function JoinWaitList() {
                     </form>
                     <span className="font-light text-xs mt-4">
                         Joining the wait list, indicates your consent to our{" "}
-                        <a href="#" className="underline hover:no-underline">
+                        <Link to="/privacy" className="underline hover:no-underline">
                             Privacy Policy
-                        </a>{" "}
+                        </Link>{" "}
                         and{" "}
                         <a href="#" className="underline hover:no-underline">
                             Terms of Service
