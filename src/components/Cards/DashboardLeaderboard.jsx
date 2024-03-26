@@ -14,7 +14,7 @@ function DashboardLeaderboard() {
         { id: 6, name: 'Jane Smith', points: 450, image: 'https://via.placeholder.com/150' },
         { id: 7, name: 'Jane Smith', points: 450, image: 'https://via.placeholder.com/150' },
         { id: 8, name: 'Jane Smith', points: 450, image: 'https://via.placeholder.com/150' },
-        { id: 9, name: 'Jane Smith', points: 450, image: 'https://via.placeholder.com/150' },
+        // { id: 9, name: 'Jane Smith', points: 450, image: 'https://via.placeholder.com/150' },
     ];
 
     return (
@@ -31,7 +31,7 @@ function DashboardLeaderboard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user => (
+                        {users.slice(0,8).map(user => (
                             <tr key={user.id} className="text-[#fefefe]">
                                 <td className="px-2 py-2 text-center">{user.id === 1 ?
                                     <img src={star1} alt={user.name} className="w-6" /> : user.id === 2 ?

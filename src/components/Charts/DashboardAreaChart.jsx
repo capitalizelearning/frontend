@@ -56,7 +56,7 @@ function DashboardAreaChart() {
                 options={options}
                 series={[{ data: chartData }]}
                 type="area"
-                height={400}
+                height={250}
             />
             <button className="dark:text-green-300 text-green-700 font-bold dark:font-medium flex space-x-3 items-center">View Details <img src={arrowRight} alt="icon" className='mx-2' /></button>
         </div>
