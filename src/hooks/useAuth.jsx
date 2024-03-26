@@ -1,3 +1,4 @@
+import axios from "axios";
 import PropTypes from "prop-types";
 import * as React from "react";
 
@@ -33,23 +34,25 @@ export const AuthProvider = ({ children }) => {
     React.useEffect(() => {
         if (authToken) {
             setLoading(true);
-            const fetchUser = async () => {
-                const res = await fetch("/api/auth/profile/", {
+            const fetchUser = () => {
+                axios({
+                    url: "/auth/profile/",
                     headers: {
                         Authorization: `Bearer ${authToken}`,
                     },
-                });
-                if (res.ok) {
-                    const data = await res.json();
-                    setUser(data);
-                    setIsAuthenticated(true);
-                }
-                setLoading(false);
+                })
+                    .then((res) => {
+                        setUser(res.data);
+                        setIsAuthenticated(true);
+                    })
+                    .catch((e) => {
+                        if (e.status === 401) logout();
+                        console.error(e);
+                    })
+                    .finally(() => setLoading(false));
             };
             fetchUser();
-        } else {
-            setLoading(false);
-        }
+        } else setLoading(false);
     }, [authToken]);
 
     /**
@@ -59,7 +62,7 @@ export const AuthProvider = ({ children }) => {
      * @param {Boolean} remember - Whether to store the token in localstorage, defaults to false
      * @returns {Object} - The result of the login operation with success and error properties
      */
-    async function login(username, password, remember = false) {
+    function login(username, password, remember = false) {
         if (!username || !password)
             return {
                 success: false,
@@ -71,30 +74,32 @@ export const AuthProvider = ({ children }) => {
         formData.append("password", password);
 
         setLoading(true);
-        const res = await fetch("/api/auth/token/", {
+        return axios({
+            url: "/auth/token/",
             method: "POST",
-            body: formData,
-        });
-        if (!res.ok) {
-            const error = await res.json();
-            setLoading(false);
-            return {
-                success: false,
-                error: error.detail,
-            };
-        }
-        const data = await res.json();
-        if (data.access) {
-            setAuthToken(data.access);
-            if (remember) {
-                localStorage.setItem("authToken", data.access);
-            }
-        }
-        setLoading(false);
-        return {
-            success: true,
-            error: null,
-        };
+            data: formData,
+        })
+            .then((res) => {
+                if (res.data.access) {
+                    setAuthToken(res.data.access);
+                    if (remember) {
+                        localStorage.setItem("authToken", res.data.access);
+                    }
+                }
+                return {
+                    success: true,
+                    error: null,
+                };
+            })
+            .catch((e) => {
+                return {
+                    success: false,
+                    error:
+                        e.response?.data?.detail ??
+                        "Failed to get user data from server",
+                };
+            })
+            .finally(() => setLoading(false));
     }
 
     /**
@@ -103,7 +108,7 @@ export const AuthProvider = ({ children }) => {
      * @param {string} password  - The new password
      * @returns {Object} - The result of the operation with success and error properties
      */
-    async function setInitialPassword(token, password) {
+    function setInitialPassword(token, password) {
         if (!token || !password)
             return { success: false, error: "Token and password are required" };
 
@@ -111,20 +116,24 @@ export const AuthProvider = ({ children }) => {
         formData.append("password", password);
 
         setLoading(true);
-        const res = await fetch(`/api/auth/register/${token}/`, {
+        return axios({
+            urL: `/auth/register/${token}/`,
             method: "POST",
-            body: formData,
-        });
-        if (!res.ok) {
-            const error = await res.json();
-            setLoading(false);
-            return {
-                success: false,
-                error: error.detail,
-            };
-        }
-        setLoading(false);
-        return { success: true, error: null };
+            data: formData,
+        })
+            .then(() => {
+                return { success: true, error: null };
+            })
+            .catch((e) => {
+                setLoading(false);
+                return {
+                    success: false,
+                    error:
+                        e.response?.data?.detail ??
+                        "Unable complete the request at this time. Try again later.",
+                };
+            })
+            .finally(() => setLoading(false));
     }
 
     /**
