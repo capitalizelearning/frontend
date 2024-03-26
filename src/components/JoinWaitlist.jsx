@@ -1,6 +1,8 @@
 import GetStartedSrc from "@/assets/imgs/get_started.png";
+import axios from "axios";
 import * as React from "react";
-``
+import { Link } from "react-router-dom";
+
 export default function JoinWaitList() {
     const [email, setEmail] = React.useState("");
     const [waitListMessage, setWaitListMessage] = React.useState("");
@@ -14,36 +16,23 @@ export default function JoinWaitList() {
             return;
         }
 
-        const res = await fetch(
-            "https://api.capitalizelearn.com/v1/auth/wait-list/",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email }),
-            }
-        );
-        if (res.status === 201) {
-            setWaitListMessage("Thank you for joining the waitlist!");
-            setEmail("");
-            return;
-        }
-        if (res.status === 200) {
-            setWaitListMessage(
-                "You are already on the waitlist. Keep an eye on your email for updates on our product."
-            );
-            setEmail("");
-            return;
-        }
-        if (res.status === 400) {
-            setWaitListMessage("Please enter a valid email address.");
-            return;
-        }
-        if (res.status === 500) {
-            setWaitListMessage("Something went wrong. Please try again later.");
-            return;
-        }
+        axios({
+            url: "/auth/wait-list/",
+            method: "POST",
+            validateStatus: (status) => status < 500,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            data: JSON.stringify({ email }),    
+        })
+            .then((res) => {
+                setWaitListMessage(res.data.message);
+            })
+            .catch(() => {
+                setWaitListMessage(
+                    "Something went wrong. Please try again later."
+                );
+            });
     };
 
     return (
@@ -82,13 +71,15 @@ export default function JoinWaitList() {
                     </form>
                     <span className="font-light text-xs mt-4">
                         Joining the wait list, indicates your consent to our{" "}
-                        <a href="#" className="underline hover:no-underline">
+                        <Link
+                            to="/privacy"
+                            className="underline hover:no-underline">
                             Privacy Policy
-                        </a>{" "}
+                        </Link>{" "}
                         and{" "}
-                        <a href="#" className="underline hover:no-underline">
+                        <Link to="/terms" className="underline hover:no-underline">
                             Terms of Service
-                        </a>
+                        </Link>
                         . You can unsubscribe at any time.
                     </span>
                 </div>

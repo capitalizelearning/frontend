@@ -1,3 +1,4 @@
+import axios from "axios";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { useAuth } from "./useAuth.jsx";
@@ -19,23 +20,25 @@ export const ContentProvider = ({ children }) => {
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
 
-    const fetchContent = React.useCallback(async () => {
+    const fetchContent = React.useCallback(() => {
         if (!isAuthenticated) {
             console.error("User is not authenticated");
         }
         setLoading(true);
-        const response = await fetch("/api/lessons/", {
+        axios({
+            url: "/lessons/",
             headers: {
                 Authorization: `Bearer ${authToken}`,
             },
-        });
-        const data = await response.json();
-        if (!response.ok) {
-            setError(data);
-        } else {
-            setContent(data);
-        }
-        setLoading(false);
+        })
+            .then((res) => setContent(res.data))
+            .catch((e) =>
+                setError(
+                    e.response?.data?.detail ??
+                        "Something went wrong while fetching content."
+                )
+            )
+            .finally(() => setLoading(false));
     }, [isAuthenticated, authToken]);
 
     React.useEffect(() => {
@@ -43,45 +46,61 @@ export const ContentProvider = ({ children }) => {
     }, [isAuthenticated, fetchContent]);
 
     async function getQuizzes() {
-        const response = await fetch("/api/lessons/quizzes/", {
-            headers: {
-                Authorization: `Bearer ${authToken}`,
-            },
-        });
-        return response.json();
+        try {
+            const res = await axios({
+                url: "/lessons/quizzes/",
+                headers: {
+                    Authorization: `Bearer ${authToken}`,
+                },
+            });
+            return res.data;
+        } catch (message) {
+            return console.error(message);
+        }
     }
 
     async function getLessonQuizzes(lessonId) {
-        const response = await fetch(`/api/lessons/quizzes/${lessonId}/`, {
-            headers: {
-                Authorization: `Bearer ${authToken}`,
-            },
-        });
-        return response.json();
+        try {
+            const res = await axios({
+                url: `/lessons/quizzes/${lessonId}/`,
+                headers: {
+                    Authorization: `Bearer ${authToken}`,
+                },
+            });
+            return res.data;
+        } catch (message) {
+            return console.error(message);
+        }
     }
 
     async function getQuizQuestions(quizId) {
-        const response = await fetch(`/api/lessons/quizzes/${quizId}/`, {
-            headers: {
-                Authorization: `Bearer ${authToken}`,
-            },
-        });
-        return await response.json();
+        try {
+            const res = await axios({
+                url: `/lessons/quizzes/${quizId}/`,
+                headers: {
+                    Authorization: `Bearer ${authToken}`,
+                },
+            });
+            return res.data;
+        } catch (message) {
+            return console.error(message);
+        }
     }
 
     async function checkQuizAnswer(quizId, questionId, answerIndex) {
-        const response = await fetch(
-            `/api/lessons/quizzes/${quizId}/${questionId}/`,
-            {
+        try {
+            const res = await axios({
+                url: `/lessons/quizzes/${quizId}/${questionId}/`,
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${authToken}`,
-                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ response: answerIndex }),
-            }
-        );
-        return await response.json();
+                data: JSON.stringify({ response: answerIndex }),
+            });
+            return res.data;
+        } catch (message) {
+            return console.error(message);
+        }
     }
 
     // async function createLesson(data) {}
