@@ -15,6 +15,7 @@ function DynamicDropdown({ options }) {
                 className="dark:text-white dark:bg-[#161616] bg-[#f3f3f3] focus:ring-4  text-lg focus:outline-none px-4 w-auto flex py-2 items-center rounded-xl"
                 type="button"
                 onClick={toggleDropdown}
+                disabled={true}
             >
                 Indicators
                 <svg

@@ -4,7 +4,7 @@ function TradeCard({ data, selectedCard, handleCardSelect }) {
     return (
         <div className={`m-2`}>
             <div
-                className={`cursor min-h-[200px] w-full rounded-xl ${selectedCard === data?.id
+                className={`cursor xxl:min-h-[200px] w-full rounded-xl ${selectedCard === data?.id
                         ? 'border-[#02a854ad] border-2 bg-[#fefefe] dark:bg-[#161616]'
                         : 'bg-[#fefefe] dark:bg-[#161616]'
                     }`}

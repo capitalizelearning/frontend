@@ -88,7 +88,7 @@ const Layout = ({ children }) => {
             {/* content */}
 
             <div className="flex-1 bg-[#DCE4E7] dark:bg-[#0F0F0F] dark:text-[#DCE4E7] md:overflow-y-auto">
-                <div className="w-full h-full container mx-auto md:p-4 lg:w-10/12">
+                <div className="w-full h-full container mx-auto md:p-4 xxl:w-10/12 xl:w-11/12">
                     <div className="flex items-center w-full gap-4">
                         <div className="flex-1">
                             <h6 className="text-xl font-semibold">
