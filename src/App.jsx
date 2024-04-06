@@ -5,6 +5,7 @@ import Dashboard2 from "@/pages/Dashboard/Dashboard";
 import LessonDetail from "@/pages/Dashboard/LessonDetail";
 import Lessons from "@/pages/Dashboard/Lessons";
 import QuizPage from "@/pages/Dashboard/QuizPage";
+import TradeIndex from "@/pages/Trade/TradeIndex";
 import Quizzes from "@/pages/Dashboard/Quizzes";
 import Features from "@/pages/Features";
 import Landing from "@/pages/Landing";
@@ -48,7 +49,8 @@ export default function App() {
                     <Route path="/auth/login" element={<Login />} />
                     <Route path="/auth/register" element={<Register />} />
                 </Route>
-                {/* <Route path="/dashboard/" element={<Dashboard2 />} /> */}
+                {/* <Route path="/dashboard/" element={<Dashboard2 />} />
+                <Route path="/trade" element={<TradeIndex />} /> */}
 
                 {/* Requires Auth: */}
                 <Route path="/learn" element={<ProtectedRoute />}>

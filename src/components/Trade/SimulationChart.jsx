@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Chart from 'react-apexcharts';
+import '@/assets/css/simulation-chart.css'
 
 const SimulationChart = () => {
   const [selectedInterval, setSelectedInterval] = useState('15m');
@@ -48,6 +49,10 @@ const SimulationChart = () => {
         show: true,
         format: 'HH:mm',
       },
+      style: {
+        fontSize: '14px',
+        colors: '#161616' // Change this to the color you desire
+      }
     },
   };
 
