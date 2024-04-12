@@ -2,11 +2,16 @@ import arrowIcon from "@/assets/imgs/arrow.png";
 import collab1 from "@/assets/imgs/colab-1.png";
 import collab2 from "@/assets/imgs/colab-2.png";
 import collab3 from "@/assets/imgs/colab-3.png";
-import Feature1Src from "@/assets/imgs/features_tile_1.png";
-import Feature2Src from "@/assets/imgs/features_tile_2.png";
-import Feature3Src from "@/assets/imgs/features_tile_3.png";
-import Feature4Src from "@/assets/imgs/features_tile_4.png";
-import Feature5Src from "@/assets/imgs/features_tile_5.png";
+// import Feature1Src from "@/assets/imgs/features_tile_1.png";
+import Feature1Src from "@/assets/imgs/features/1.svg";
+import Feature2Src from "@/assets/imgs/features/2.svg";
+import Feature3Src from "@/assets/imgs/features/2.svg";
+import Feature4Src from "@/assets/imgs/features/4.svg";
+import Feature5Src from "@/assets/imgs/features/5.svg";
+// import Feature2Src from "@/assets/imgs/features_tile_2.png";
+// import Feature3Src from "@/assets/imgs/features_tile_3.png";
+// import Feature4Src from "@/assets/imgs/features_tile_4.png";
+// import Feature5Src from "@/assets/imgs/features_tile_5.png";
 import MoreImageSide from "@/assets/imgs/more-img-side.png";
 import CollabCardComponent from "@/components/CollabCard";
 import DownloadCard from "@/components/DownloadCard";
@@ -15,6 +20,7 @@ import LandingNav from "@/components/LandingNav";
 import ProductTabs from "@/components/ProductTabs";
 import CardFooter from "@/components/Section/CardFooter";
 import SectionHeaderTitle from "@/components/Section/HeaderTitle";
+import FeatureSection from "../components/Cards/FeatureSection";
 
 export default function Features() {
     // links
@@ -192,14 +198,26 @@ export default function Features() {
                                     capabilities that are designed to elevate your
                                     experience and help you achieve more.`}
                             />
-                            <div className="flex flex-wrap items-center justify-center gap-8 w-full f">
-                                <img src={Feature1Src} alt="feature_1" />
-                                <img src={Feature2Src} alt="feature_2" />
-                            </div>
-                            <div className="flex flex-wrap items-center justify-center gap-8 w-full">
-                                <img src={Feature3Src} alt="feature_3" />
-                                <img src={Feature4Src} alt="feature_4" />
-                                <img src={Feature5Src} alt="feature_5" />
+                            <div className="w-full container flex flex-wrap mx-auto justify-center items-center gap-4">
+                                <div className="lg:flex gap-8 w-full lg:w-[70%]">
+                                    <div className="w-full lg:w-8/12">
+                                        <FeatureSection img={Feature1Src} title={'Learner and Instructor Dashboard'} desc={'Our interactive dashboard provides an all-encompassing view of you or your students’ progress through the various modules. Allowing you to track your improvement every day'} />
+                                    </div>
+                                    <div className='w-full lg:w-4/12'>
+                                        <FeatureSection img={Feature2Src} title={'Progress tracker'} desc={'Seamlessly track your progress through the learning modules so you can set new learning goals every day'} />
+                                    </div>
+                                </div>
+                                <div className="lg:flex gap-8 w-full lg:w-[70%]">
+                                    <div className="w-full lg:w-4/12">
+                                        <FeatureSection img={Feature3Src} title={'Investment Simulation'} desc={'Put your knowledge to the test with our investment simulation where you can invest in real stocks without real money'} />
+                                    </div>
+                                    <div className='w-full lg:w-4/12'>
+                                        <FeatureSection img={Feature4Src} title={'Progress Tracker'} desc={'Easily and seamlessly track your progress through the learning modules so you can set new learning goals every day'} />
+                                    </div>
+                                    <div className='w-full lg:w-4/12'>
+                                        <FeatureSection img={Feature5Src} title={'Easy collaboration'} desc={'Seamlessly collaborate with your team members like never before.'} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
