@@ -1,4 +1,5 @@
 import JoinWaitList from "@/components/JoinWaitlist";
+import Footer from '@/components/Footer';
 import * as React from "react";
 
 import LandingNav from "@/components/LandingNav";
@@ -263,6 +264,9 @@ export default function ContactUs() {
                     <JoinWaitList />
                 </section>
             </div>
+
+            {/* Footer */}
+            <Footer />
         </main>
     );
 }
