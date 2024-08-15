@@ -50,6 +50,7 @@ export default function ContactUs() {
                                         id="input-full-name"
                                         className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#FBFBFB] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                         placeholder=" "
+                                        value={name}
                                     />
                                     <label
                                         htmlFor="input-full-name"
@@ -63,6 +64,7 @@ export default function ContactUs() {
                                         id="input-email"
                                         className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#FBFBFB] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                         placeholder=" "
+                                        value={email}
                                     />
                                     <label
                                         htmlFor="input-email"
@@ -77,7 +79,9 @@ export default function ContactUs() {
                                     id="input-message"
                                     className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-[#161616] bg-[#FBFBFB] border-0 border-b-2 border-[#161616] appearance-none  focus:outline-none focus:ring-0 focus:border-[#02A854] peer dark:bg-[#161616] dark:text-[#FBFBFB] dark:border-[#FBFBFB]"
                                     placeholder=" "
-                                    rows={4}></textarea>
+                                    rows={4}
+                                    value={message}
+                                ></textarea>
                                 <label
                                     htmlFor="input-message"
                                     className="absolute text-sm text-gray-500  duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-[#02A854] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
@@ -203,7 +207,7 @@ export default function ContactUs() {
                             Some of the things you may want to know
                         </h2>
                         <p className="text-lg text-text-light md:text-center leading-relaxed mb-12">
-                            We answered questions so you don’t have to ask them.
+                            We answered questions so you don&apos;t have to ask them.
                         </p>
 
                         <div className="flex flex-col gap-6 w-full max-w-xl">
@@ -253,7 +257,7 @@ export default function ContactUs() {
                                 Yes, absolutely! We understand that your needs may evolve over time, 
                                 which is why we offer the flexibility to upgrade or downgrade your 
                                 subscription plan as necessary. Whether you require additional features 
-                                and resources or you're looking to streamline your expenses, you can 
+                                and resources or you&apos;re looking to streamline your expenses, you can 
                                 easily make changes to your subscription through your account settings 
                                 or by reaching out to our customer support team.
                             </details>
